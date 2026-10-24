@@ -1,0 +1,14 @@
+.split-heading {
+  display: block;
+}
+
+.split-heading__mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.split-heading__word {
+  display: inline-block;
+  will-change: transform;
+}

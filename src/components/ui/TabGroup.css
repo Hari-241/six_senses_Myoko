@@ -1,0 +1,44 @@
+.tab-group {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 5px;
+  background: var(--tan-soft);
+  border-radius: var(--radius-pill);
+}
+
+.tab-group__tab {
+  position: relative;
+  padding: 11px 22px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-ui);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: var(--track-wide);
+  text-transform: uppercase;
+  color: var(--body);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.tab-group--sm .tab-group__tab {
+  padding: 8px 16px;
+  font-size: 0.625rem;
+}
+
+.tab-group__tab--active {
+  color: var(--white);
+}
+
+.tab-group__highlight {
+  position: absolute;
+  inset: 0;
+  background: var(--plum);
+  border-radius: var(--radius-pill);
+  z-index: 0;
+}
+
+.tab-group__label {
+  position: relative;
+  z-index: 1;
+}

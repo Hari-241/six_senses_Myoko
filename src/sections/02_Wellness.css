@@ -1,0 +1,37 @@
+.wellness__collage-wrap {
+  margin-top: clamp(56px, 8vw, 96px);
+  padding-bottom: 72px; /* room for the tertiary layer's bottom bleed */
+}
+
+.wellness__collage {
+  max-width: 980px;
+}
+
+.wellness__pillars-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  padding-top: clamp(32px, 5vw, 56px);
+  border-top: 1px solid var(--hairline);
+}
+
+.wellness__pillar-label {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: 400;
+  color: var(--heading);
+  margin-bottom: 10px;
+}
+
+.wellness__pillar-body {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--body);
+}
+
+@media (max-width: 760px) {
+  .wellness__pillars-row {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}

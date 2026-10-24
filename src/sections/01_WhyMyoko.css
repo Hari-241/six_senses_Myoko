@@ -1,0 +1,83 @@
+.why-myoko {
+  padding-top: 0;
+}
+
+.why-myoko__hero {
+  position: relative;
+  height: min(72vh, 680px);
+  min-height: 440px;
+  overflow: hidden;
+}
+
+.why-myoko__hero-image {
+  position: absolute;
+  inset: -8% 0;
+}
+
+.why-myoko__hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.why-myoko__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(20, 15, 18, 0.15) 0%, rgba(20, 15, 18, 0.45) 55%, rgba(20, 15, 18, 0.72) 100%);
+}
+
+.why-myoko__hero-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: clamp(40px, 6vw, 72px);
+  color: var(--white);
+}
+
+.why-myoko__title {
+  font-size: var(--fs-h1);
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 18px;
+}
+
+.why-myoko__body {
+  max-width: 44em;
+  font-size: var(--fs-body);
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.why-myoko__seasons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: clamp(48px, 7vw, 80px);
+}
+
+.season-card__image {
+  margin-bottom: 18px;
+}
+
+.season-card__label {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: 400;
+  color: var(--heading);
+  margin-bottom: 8px;
+}
+
+.season-card__body {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--body);
+}
+
+@media (max-width: 860px) {
+  .why-myoko__seasons {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "six-senses-myoko",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "homepage": "https://Hari-241.github.io/six_senses_Myoko/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Hari-241/six_senses_Myoko.git"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "oxlint",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "dependencies": {
+    "lenis": "^1.3.27",
+    "motion": "^14.6.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "gh-pages": "^6.3.0",
+    "oxlint": "^1.88.0",
+    "vite": "^8.3.4"
+  }
+}

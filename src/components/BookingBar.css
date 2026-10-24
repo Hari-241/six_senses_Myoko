@@ -1,0 +1,75 @@
+.booking-bar {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  align-items: stretch;
+  width: min(1000px, calc(100% - 40px));
+  margin-inline: auto;
+  margin-top: -34px;
+  background: var(--white);
+  box-shadow: var(--shadow-card);
+  padding: 8px;
+  gap: 4px;
+}
+
+.booking-bar__field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  padding: 10px 16px;
+  color: var(--heading);
+  min-width: 0;
+}
+
+.booking-bar__field--codes {
+  flex: 0.7;
+}
+
+.booking-bar__field-text {
+  font-family: var(--font-ui);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
+}
+
+.booking-bar__field-text--muted {
+  color: var(--body-soft);
+}
+
+.booking-bar__divider {
+  width: 1px;
+  background: var(--hairline);
+  margin-block: 8px;
+}
+
+.booking-bar__search {
+  flex-shrink: 0;
+}
+
+@media (max-width: 860px) {
+  .booking-bar {
+    flex-wrap: wrap;
+    margin-top: -20px;
+  }
+
+  .booking-bar__divider {
+    display: none;
+  }
+
+  .booking-bar__field {
+    flex: 1 1 45%;
+  }
+
+  .booking-bar__field--codes {
+    flex: 1 1 100%;
+  }
+
+  .booking-bar__search {
+    flex: 1 1 100%;
+  }
+}

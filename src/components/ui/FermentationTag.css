@@ -1,0 +1,15 @@
+.fv-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--moss-soft);
+  color: var(--moss);
+  font-family: var(--font-ui);
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: var(--track-mid);
+  text-transform: uppercase;
+  white-space: nowrap;
+}

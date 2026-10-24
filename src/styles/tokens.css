@@ -1,0 +1,74 @@
+/*
+  Design tokens for Six Senses Myoko.
+  Colours were sampled directly from a 16s screen recording of the real
+  sixsenses.com resort page (not guessed from screenshots) — see the build
+  plan for the extraction notes. Keep this file as the single source of
+  truth for the palette and type scale; everything else should reference
+  these custom properties rather than hard-coding values.
+*/
+
+:root {
+  /* ---------- Colour ---------- */
+  --plum: #5b2252; /* nav BOOK NOW, SEARCH, primary buttons, link hover */
+  --plum-soft: #7a3a6e; /* hover state */
+  --plum-dark: #3e1838; /* pressed state / deep accents */
+
+  --nav-cream: #f7f5f0; /* nav bar + hero-adjacent chrome */
+  --white: #ffffff; /* dominant page background */
+  --greige: #f2f0ea; /* alternating section panels */
+  --tan: #e0d2bf; /* selected chip fill */
+  --tan-soft: #efe6da; /* unselected chip fill */
+
+  --heading: #2b2520; /* near-black brown, headings */
+  --body: #5c5650; /* body copy grey */
+  --body-soft: #8a8379; /* captions, meta text */
+  --hairline: #e2ded6; /* dividers */
+  --hairline-strong: #d3cdc0;
+
+  --moss: #6e7355; /* Fermentation Valley tag */
+  --moss-soft: #eef0e7; /* FV tag background */
+
+  --overlay-scrim: linear-gradient(
+    180deg,
+    rgba(20, 15, 18, 0.05) 0%,
+    rgba(20, 15, 18, 0.35) 60%,
+    rgba(20, 15, 18, 0.6) 100%
+  );
+
+  /* ---------- Type ---------- */
+  --font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-ui: 'Jost', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --track-wide: 0.18em;
+  --track-mid: 0.08em;
+
+  /* Restrained scale, matched to the recording — not display-huge. */
+  --fs-hero: clamp(2.1rem, 1.5rem + 2.6vw, 2.75rem); /* ~44px desktop */
+  --fs-h1: clamp(1.6rem, 1.3rem + 1.4vw, 2.1rem); /* ~30-34px */
+  --fs-h2: clamp(1.4rem, 1.2rem + 1vw, 1.75rem);
+  --fs-h3: 1.3rem;
+  --fs-body: 0.906rem; /* 14.5px */
+  --fs-small: 0.8125rem;
+  --fs-label: 0.6875rem; /* 11px uppercase labels */
+
+  --measure-body: 38em; /* ~440-640px narrow column */
+
+  /* ---------- Motion ---------- */
+  --ease-lux: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 0.3s;
+  --dur-med: 0.6s;
+  --dur-slow: 0.9s;
+
+  /* ---------- Layout ---------- */
+  --section-gap: clamp(72px, 10vw, 180px);
+  --page-pad: clamp(20px, 5vw, 64px);
+  --nav-height: 76px;
+  --radius-pill: 999px;
+  --radius-none: 0; /* images are hard-edged, deliberately */
+
+  --shadow-card: 0 2px 24px rgba(43, 37, 32, 0.08);
+  --shadow-soft: 0 1px 3px rgba(43, 37, 32, 0.06);
+
+  --max-width: 1360px;
+}

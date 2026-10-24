@@ -1,0 +1,76 @@
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-ui);
+  font-weight: 500;
+  letter-spacing: var(--track-wide);
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out);
+}
+
+.pill__icon {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Sizes */
+.pill--md {
+  padding: 13px 26px;
+  font-size: var(--fs-label);
+}
+
+.pill--sm {
+  padding: 9px 18px;
+  font-size: 0.625rem;
+}
+
+.pill--lg {
+  padding: 16px 34px;
+  font-size: 0.75rem;
+}
+
+/* Variants */
+.pill--plum {
+  background: var(--plum);
+  color: var(--white);
+  border: 1px solid var(--plum);
+}
+
+.pill--plum:hover {
+  background: var(--plum-soft);
+  border-color: var(--plum-soft);
+}
+
+.pill--outline {
+  background: transparent;
+  color: var(--heading);
+  border: 1px solid var(--hairline-strong);
+}
+
+.pill--outline:hover {
+  border-color: var(--plum);
+  color: var(--plum);
+}
+
+.pill--ghost {
+  background: transparent;
+  color: var(--heading);
+  border: 1px solid transparent;
+}
+
+.pill--ghost:hover {
+  border-color: var(--hairline-strong);
+}
+
+.pill--selected.pill--ghost,
+.pill--tan {
+  background: var(--tan);
+  color: var(--heading);
+  border: 1px solid var(--tan);
+}

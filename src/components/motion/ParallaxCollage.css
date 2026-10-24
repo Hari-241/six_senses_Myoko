@@ -1,0 +1,55 @@
+.parallax-collage {
+  position: relative;
+  width: 100%;
+  min-height: 480px;
+}
+
+.parallax-collage__layer {
+  position: absolute;
+}
+
+/* Default three-layer asymmetric arrangement, modelled on the frames
+   captured from the reference recording: a large anchor image, a smaller
+   image overlapping its top-right corner and bleeding toward the
+   viewport edge, and an optional small accent overlapping the bottom. */
+
+.parallax-collage__layer--primary {
+  top: 0;
+  left: 0;
+  width: 60%;
+  z-index: 1;
+}
+
+.parallax-collage__layer--secondary {
+  top: 6%;
+  right: -6%;
+  width: 36%;
+  z-index: 2;
+}
+
+.parallax-collage__layer--tertiary {
+  bottom: -10%;
+  left: 10%;
+  width: 32%;
+  z-index: 3;
+}
+
+@media (max-width: 860px) {
+  .parallax-collage {
+    min-height: 0;
+  }
+
+  .parallax-collage__layer {
+    position: relative;
+    width: 100% !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    margin-bottom: 20px;
+  }
+
+  .parallax-collage__layer:last-child {
+    margin-bottom: 0;
+  }
+}

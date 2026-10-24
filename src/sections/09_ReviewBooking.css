@@ -1,0 +1,147 @@
+.review-booking__layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 56px;
+  margin-top: clamp(40px, 6vw, 64px);
+}
+
+.review-booking__summary,
+.review-booking__form,
+.confirmation {
+  background: var(--white);
+  padding: 32px;
+  border: 1px solid var(--hairline);
+}
+
+.review-booking__summary-heading {
+  font-family: var(--font-ui);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: var(--track-wide);
+  text-transform: uppercase;
+  color: var(--body-soft);
+  margin-bottom: 22px;
+}
+
+.review-booking__empty {
+  font-size: 0.875rem;
+  color: var(--body-soft);
+}
+
+.review-booking__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.review-booking__row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.review-booking__row:last-child {
+  border-bottom: none;
+}
+
+.review-booking__row dt {
+  font-size: 0.8125rem;
+  color: var(--body-soft);
+}
+
+.review-booking__row dd {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--heading);
+  text-align: right;
+  max-width: 60%;
+}
+
+.review-booking__form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.review-booking__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.review-booking__field span {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  color: var(--body-soft);
+}
+
+.review-booking__field input,
+.review-booking__field textarea {
+  border: 1px solid var(--hairline-strong);
+  background: var(--greige);
+  padding: 11px 14px;
+  font-size: 0.875rem;
+  color: var(--heading);
+  font-family: var(--font-ui);
+}
+
+.review-booking__field input:focus,
+.review-booking__field textarea:focus {
+  outline: none;
+  border-color: var(--plum);
+}
+
+.review-booking__field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.review-booking__submit {
+  margin-top: 8px;
+  align-self: flex-start;
+}
+
+.confirmation {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.confirmation__mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--moss-soft);
+  color: var(--moss);
+  font-size: 1.1rem;
+}
+
+.confirmation h3 {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: 400;
+  color: var(--heading);
+}
+
+.confirmation p {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--body);
+  max-width: 34em;
+}
+
+@media (max-width: 860px) {
+  .review-booking__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .review-booking__field-row {
+    grid-template-columns: 1fr;
+  }
+}
