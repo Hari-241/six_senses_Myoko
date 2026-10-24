@@ -6,26 +6,35 @@ import './ParallaxCollage.css';
 
 /**
  * THE signature motion of the reference site: two or three hard-edged
- * photos overlapping each other at different scroll speeds, one usually
- * bleeding past the container's edge, so the composition continuously
- * reshuffles as the page scrolls. Confirmed from the screen recording
- * (not the static screenshots) — see the build plan's "Reference
- * recording" notes.
+ * photos overlapping each other at different scroll speeds, so the
+ * composition reshuffles gently as the page scrolls. Confirmed from the
+ * screen recording (not the static screenshots) — see the build plan's
+ * "Reference recording" notes.
+ *
+ * Structurally self-contained on purpose, after an early version let
+ * layers visually drift into neighbouring sections' text:
+ *  - The FIRST layer in `layers` is the "anchor" — it renders in normal
+ *    document flow (via its own aspect-ratio), so it alone defines the
+ *    container's real height. No magic-number height guessing.
+ *  - Every other layer is an absolutely-positioned overlay on top of
+ *    that anchor.
+ *  - The container clips with `overflow: hidden`, so no amount of bleed
+ *    offset or parallax drift can ever escape into the section above or
+ *    below — worst case an overlay's edge gets cleanly clipped, it can
+ *    never cover unrelated text.
  *
  * Pass 2–3 `layers`, each: { image, aspect, speed, layerClassName }.
- * `layerClassName` picks the position/size from ParallaxCollage.css
- * (--primary / --secondary / --tertiary) — override with your own class
- * for a bespoke arrangement. `speed` is how far the layer drifts as a
- * fraction of its own height (0.08–0.22 reads well; higher = more drift).
+ * `layerClassName` on an overlay layer picks its position/size from
+ * ParallaxCollage.css (--secondary / --tertiary) — override with your
+ * own class for a bespoke arrangement. `speed` is how far a layer drifts
+ * as a fraction of its own height (0.06–0.12 reads well; this is
+ * deliberately subtle now that drift is clipped rather than contained by
+ * careful spacing).
  *
- * Deliberately photography-only, no text overlay: layers are absolutely
- * positioned (so they can overlap and bleed off the edge), which means
- * they don't contribute to the container's natural height — a caption
- * flowing inside one layer can silently overlap a neighbouring layer.
- * Put any accompanying copy in a normal-flow block beside or below the
- * collage instead (see Section 2 for the pattern).
+ * Photography-only, no text overlay — put accompanying copy in a
+ * normal-flow block beside or below the collage instead (see Section 2).
  */
-export function ParallaxCollage({ layers, className, height }) {
+export function ParallaxCollage({ layers, className }) {
   const containerRef = useRef(null);
   const reduced = useReducedMotion();
 
@@ -34,17 +43,16 @@ export function ParallaxCollage({ layers, className, height }) {
     offset: ['start end', 'end start'],
   });
 
+  const [anchor, ...overlays] = layers;
+
   return (
-    <div
-      ref={containerRef}
-      className={`parallax-collage ${className ?? ''}`}
-      style={height ? { minHeight: height } : undefined}
-    >
-      {layers.map((layer, index) => (
+    <div ref={containerRef} className={`parallax-collage ${className ?? ''}`}>
+      <CollageLayer layer={anchor} index={0} isAnchor scrollYProgress={scrollYProgress} reduced={reduced} />
+      {overlays.map((layer, i) => (
         <CollageLayer
-          key={layer.key ?? layer.image?.src ?? index}
+          key={layer.key ?? layer.image?.src ?? i}
           layer={layer}
-          index={index}
+          index={i + 1}
           scrollYProgress={scrollYProgress}
           reduced={reduced}
         />
@@ -53,13 +61,15 @@ export function ParallaxCollage({ layers, className, height }) {
   );
 }
 
-const DEFAULT_SLOTS = ['parallax-collage__layer--primary', 'parallax-collage__layer--secondary', 'parallax-collage__layer--tertiary'];
+const OVERLAY_SLOTS = ['parallax-collage__layer--secondary', 'parallax-collage__layer--tertiary'];
 
-function CollageLayer({ layer, index, scrollYProgress, reduced }) {
-  const speed = layer.speed ?? 0.14;
+function CollageLayer({ layer, index, isAnchor, scrollYProgress, reduced }) {
+  const speed = layer.speed ?? (isAnchor ? 0.05 : 0.08);
   const range = reduced ? [0, 0] : [`${-speed * 100}%`, `${speed * 100}%`];
   const y = useTransform(scrollYProgress, [0, 1], range);
-  const slotClass = layer.layerClassName ?? DEFAULT_SLOTS[index] ?? DEFAULT_SLOTS[DEFAULT_SLOTS.length - 1];
+  const slotClass = isAnchor
+    ? 'parallax-collage__layer--anchor'
+    : (layer.layerClassName ?? OVERLAY_SLOTS[index - 1] ?? OVERLAY_SLOTS[OVERLAY_SLOTS.length - 1]);
 
   return (
     <motion.div className={`parallax-collage__layer ${slotClass}`} style={{ y }}>

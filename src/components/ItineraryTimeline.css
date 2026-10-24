@@ -1,0 +1,85 @@
+.itinerary-timeline {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 32px;
+}
+
+.itinerary-timeline__rail {
+  position: relative;
+  width: 2px;
+  background: var(--hairline-strong);
+  margin-inline: auto;
+}
+
+.itinerary-timeline__fill {
+  position: absolute;
+  inset: 0;
+  background: var(--plum);
+  transform-origin: top;
+}
+
+.itinerary-timeline__stops {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.itinerary-stop {
+  position: relative;
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 28px;
+}
+
+.itinerary-stop__dot {
+  position: absolute;
+  left: calc(-32px - 5px);
+  top: 4px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 2px solid var(--plum);
+}
+
+.itinerary-stop__time {
+  font-family: var(--font-ui);
+  font-size: var(--fs-label);
+  letter-spacing: var(--track-mid);
+  text-transform: uppercase;
+  color: var(--body-soft);
+  padding-top: 2px;
+}
+
+.itinerary-stop__title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.itinerary-stop__body h4 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--heading);
+}
+
+.itinerary-stop__body p {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--body);
+  max-width: 40em;
+}
+
+@media (max-width: 760px) {
+  .itinerary-stop {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .itinerary-stop__dot {
+    left: -32px;
+  }
+}

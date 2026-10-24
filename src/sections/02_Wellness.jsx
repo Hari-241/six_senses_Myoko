@@ -20,11 +20,10 @@ export function Wellness() {
       <div className="container wellness__collage-wrap">
         <ParallaxCollage
           className="wellness__collage"
-          height="620px"
           layers={[
-            { image: movement.image, aspect: '4 / 5', speed: 0.1 },
-            { image: rest.image, aspect: '1 / 1', speed: 0.18 },
-            { image: foodTherapy.image, aspect: '4 / 3', speed: 0.14 },
+            { image: movement.image, aspect: '4 / 5', speed: 0.05 },
+            { image: rest.image, aspect: '1 / 1', speed: 0.08 },
+            { image: foodTherapy.image, aspect: '4 / 3', speed: 0.07 },
           ]}
         />
       </div>

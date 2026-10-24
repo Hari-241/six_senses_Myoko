@@ -1,7 +1,8 @@
 import { AnimatePresence, motion } from 'motion/react';
 import { SectionHeading } from '../components/ui/SectionHeading';
-import { RevealGroup, RevealItem } from '../components/motion/Reveal';
+import { RevealGroup, RevealItem, Reveal } from '../components/motion/Reveal';
 import { FermentationTag } from '../components/ui/FermentationTag';
+import { ItineraryTimeline } from '../components/ItineraryTimeline';
 import { usePlanner } from '../context/PlannerContext';
 import { itineraries } from '../data/itineraries';
 import { offeringsActivities } from '../data/activities';
@@ -30,6 +31,27 @@ const MODES = [
 export function ChooseItinerary() {
   const { state, setItineraryMode, setItineraryId, toggleCustomActivity } = usePlanner();
   const reduced = useReducedMotion();
+
+  // Resolve a live preview of "your itinerary" so it's visible the moment
+  // enough has been chosen — a suggested pick shows that curated day's
+  // own timeline; Mix & Match / Build Your Own synthesise one from
+  // whichever activities have been checked, in the same visual language.
+  const selectedItinerary =
+    state.itineraryMode === 'suggested' ? itineraries.find((it) => it.id === state.itineraryId) : null;
+
+  const customStops =
+    state.itineraryMode === 'mixMatch' || state.itineraryMode === 'buildOwn'
+      ? offeringsActivities
+          .filter((a) => state.customActivities.includes(a.id))
+          .map((a) => ({ time: a.schedule, title: a.name, description: a.description, fv: a.fv }))
+      : [];
+
+  const previewStops = selectedItinerary ? selectedItinerary.stops : customStops;
+  const previewLabel = selectedItinerary
+    ? selectedItinerary.name
+    : customStops.length
+      ? `${customStops.length} ${customStops.length === 1 ? 'Activity' : 'Activities'}`
+      : null;
 
   return (
     <section className="choose-itinerary section" id="choose-itinerary">
@@ -82,6 +104,16 @@ export function ChooseItinerary() {
             />
           ) : null}
         </PanelSwitch>
+
+        {previewStops.length > 0 ? (
+          <Reveal as="div" className="itinerary-preview">
+            <p className="itinerary-preview__eyebrow">Your Itinerary</p>
+            <h3 className="itinerary-preview__name">{previewLabel}</h3>
+            <div className="itinerary-preview__timeline">
+              <ItineraryTimeline stops={previewStops} />
+            </div>
+          </Reveal>
+        ) : null}
       </div>
     </section>
   );

@@ -1,3 +1,30 @@
+.itinerary-preview {
+  margin-top: clamp(56px, 8vw, 88px);
+  padding-top: clamp(40px, 6vw, 56px);
+  border-top: 1px solid var(--hairline);
+}
+
+.itinerary-preview__eyebrow {
+  font-family: var(--font-ui);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: var(--track-wide);
+  text-transform: uppercase;
+  color: var(--moss);
+  margin-bottom: 10px;
+}
+
+.itinerary-preview__name {
+  font-size: var(--fs-h2);
+  font-weight: 400;
+  color: var(--heading);
+  margin-bottom: 32px;
+}
+
+.itinerary-preview__timeline {
+  max-width: 760px;
+}
+
 .choose-itinerary__modes {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

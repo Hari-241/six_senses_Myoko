@@ -1,6 +1,6 @@
 .wellness__collage-wrap {
   margin-top: clamp(56px, 8vw, 96px);
-  padding-bottom: 72px; /* room for the tertiary layer's bottom bleed */
+  padding-bottom: clamp(40px, 6vw, 64px);
 }
 
 .wellness__collage {

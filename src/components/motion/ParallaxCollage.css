@@ -1,55 +1,63 @@
 .parallax-collage {
   position: relative;
   width: 100%;
-  min-height: 480px;
+  overflow: hidden; /* guarantees no layer can ever visually escape into neighbouring content */
 }
 
 .parallax-collage__layer {
-  position: absolute;
+  will-change: transform;
 }
 
-/* Default three-layer asymmetric arrangement, modelled on the frames
-   captured from the reference recording: a large anchor image, a smaller
-   image overlapping its top-right corner and bleeding toward the
-   viewport edge, and an optional small accent overlapping the bottom. */
-
-.parallax-collage__layer--primary {
-  top: 0;
-  left: 0;
-  width: 60%;
+/* The anchor renders in normal document flow — it alone defines the
+   collage's real height via its own aspect-ratio (set through the
+   `aspect` prop on its RevealImage). No fixed-height guessing. */
+.parallax-collage__layer--anchor {
+  position: relative;
+  width: 62%;
   z-index: 1;
 }
 
+/* Overlays are absolutely positioned within the anchor's bounding box
+   and kept at non-negative offsets so they're never clipped themselves —
+   only the (rare, minor) scroll-drift edge case is clipped, never text
+   in an adjacent section. */
 .parallax-collage__layer--secondary {
-  top: 6%;
-  right: -6%;
+  position: absolute;
+  top: 5%;
+  right: 2%;
   width: 36%;
   z-index: 2;
 }
 
 .parallax-collage__layer--tertiary {
-  bottom: -10%;
-  left: 10%;
-  width: 32%;
+  position: absolute;
+  bottom: 3%;
+  left: 8%;
+  width: 30%;
   z-index: 3;
 }
 
 @media (max-width: 860px) {
   .parallax-collage {
-    min-height: 0;
+    overflow: visible;
   }
 
-  .parallax-collage__layer {
+  .parallax-collage__layer--anchor {
+    width: 100%;
+  }
+
+  .parallax-collage__layer--secondary,
+  .parallax-collage__layer--tertiary {
     position: relative;
-    width: 100% !important;
-    top: auto !important;
-    left: auto !important;
-    right: auto !important;
-    bottom: auto !important;
-    margin-bottom: 20px;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    width: 70%;
+    margin-top: 20px;
   }
 
-  .parallax-collage__layer:last-child {
-    margin-bottom: 0;
+  .parallax-collage__layer--secondary {
+    margin-left: auto;
   }
 }
