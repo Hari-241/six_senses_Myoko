@@ -8,42 +8,42 @@
   will-change: transform;
 }
 
-/* The anchor renders in normal document flow — it alone defines the
-   collage's real height via its own aspect-ratio (set through the
-   `aspect` prop on its RevealImage). No fixed-height guessing. */
+/* The anchor spans the FULL width and renders in normal document flow —
+   it alone defines the collage's real height via its own aspect-ratio
+   (set through the `aspect` prop on its RevealImage). Because it covers
+   every pixel of the container, there is no "dead zone" for an overlay
+   to float in front of blank space: wherever an overlay doesn't reach,
+   the anchor's own photo is still there underneath it. */
 .parallax-collage__layer--anchor {
   position: relative;
-  width: 62%;
+  width: 100%;
   z-index: 1;
 }
 
-/* Overlays are absolutely positioned within the anchor's bounding box
-   and kept at non-negative offsets so they're never clipped themselves —
-   only the (rare, minor) scroll-drift edge case is clipped, never text
-   in an adjacent section. */
+/* Overlays sit on top of the anchor's corners with a small deliberate
+   bleed past the frame — safe now that the container clips with
+   overflow:hidden, so bleed (and any parallax drift) is cleanly
+   cropped at the collage's own edge and can never reach a neighbouring
+   section's text. */
 .parallax-collage__layer--secondary {
   position: absolute;
-  top: 5%;
-  right: 2%;
-  width: 36%;
+  top: -2%;
+  right: -2%;
+  width: 38%;
   z-index: 2;
 }
 
 .parallax-collage__layer--tertiary {
   position: absolute;
-  bottom: 3%;
-  left: 8%;
-  width: 30%;
+  bottom: -2%;
+  left: 6%;
+  width: 32%;
   z-index: 3;
 }
 
 @media (max-width: 860px) {
   .parallax-collage {
     overflow: visible;
-  }
-
-  .parallax-collage__layer--anchor {
-    width: 100%;
   }
 
   .parallax-collage__layer--secondary,

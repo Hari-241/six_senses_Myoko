@@ -45,6 +45,26 @@
   color: var(--body-soft);
 }
 
+.survey-card__custom-input {
+  width: 100%;
+  margin-top: 12px;
+  border: 1px solid var(--hairline-strong);
+  background: var(--greige);
+  padding: 10px 14px;
+  font-family: var(--font-ui);
+  font-size: 0.8125rem;
+  color: var(--heading);
+}
+
+.survey-card__custom-input:focus {
+  outline: none;
+  border-color: var(--plum);
+}
+
+.survey-card__custom-input::placeholder {
+  color: var(--body-soft);
+}
+
 .dining-style {
   margin-top: 28px;
 }

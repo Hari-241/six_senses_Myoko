@@ -5,7 +5,8 @@ const PlannerContext = createContext(null);
 const initialState = {
   // Section 3 — Or design your stay
   survey: {
-    nights: null, // '2' | '3' | '4' | '5'
+    nights: null, // '2' | '3' | '4' | '5' | 'other'
+    nightsCustom: '', // free-text/number, shown & used only when nights === 'other'
     focus: null, // 'culinary' | 'rest' | 'nature' | 'gutHealth'
     pace: null, // 'slow' | 'balanced' | 'active'
     travellingAs: null, // 'solo' | 'couple' | 'family' | 'friends'

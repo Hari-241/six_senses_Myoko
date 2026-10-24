@@ -20,27 +20,42 @@ export function DesignYourStay() {
         />
 
         <RevealGroup as="div" className="design-stay__grid" stagger={0.08}>
-          {surveyQuestions.map((question) => (
+          {surveyQuestions.map((question) => {
+            const selectedOption = question.options?.find((o) => o.id === state.survey[question.field]);
+            return (
             <RevealItem as="div" className="survey-card" key={question.id}>
               <p className="survey-card__label">{question.label}</p>
 
               {question.type === 'chips' ? (
-                <div className="survey-card__chips">
-                  {question.options.map((option) => {
-                    const selected = state.survey[question.field] === option.id;
-                    return (
-                      <Pill
-                        key={option.id}
-                        variant={selected ? 'tan' : 'outline'}
-                        size="sm"
-                        onClick={() => setSurveyField(question.field, option.id)}
-                        aria-pressed={selected}
-                      >
-                        {option.label}
-                      </Pill>
-                    );
-                  })}
-                </div>
+                <>
+                  <div className="survey-card__chips">
+                    {question.options.map((option) => {
+                      const selected = state.survey[question.field] === option.id;
+                      return (
+                        <Pill
+                          key={option.id}
+                          variant={selected ? 'tan' : 'outline'}
+                          size="sm"
+                          onClick={() => setSurveyField(question.field, option.id)}
+                          aria-pressed={selected}
+                        >
+                          {option.label}
+                        </Pill>
+                      );
+                    })}
+                  </div>
+
+                  {selectedOption?.allowCustom ? (
+                    <input
+                      type="text"
+                      inputMode="numeric"
+                      className="survey-card__custom-input"
+                      placeholder="How many nights?"
+                      value={state.survey[`${question.field}Custom`] ?? ''}
+                      onChange={(e) => setSurveyField(`${question.field}Custom`, e.target.value)}
+                    />
+                  ) : null}
+                </>
               ) : (
                 <textarea
                   className="survey-card__textarea"
@@ -51,7 +66,8 @@ export function DesignYourStay() {
                 />
               )}
             </RevealItem>
-          ))}
+            );
+          })}
         </RevealGroup>
 
         <Reveal as="div" delay={0.1} className="dining-style">

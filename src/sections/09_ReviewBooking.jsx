@@ -24,8 +24,17 @@ export function ReviewBooking() {
     .map((id) => offeringsActivities.find((a) => a.id === id)?.name)
     .filter(Boolean);
 
+  const nightsValue =
+    state.survey.nights === 'other'
+      ? state.survey.nightsCustom
+        ? `${state.survey.nightsCustom} Nights`
+        : 'Other (not yet specified)'
+      : state.survey.nights
+        ? `${state.survey.nights} Nights`
+        : null;
+
   const summaryRows = [
-    { label: 'Length of stay', value: state.survey.nights ? `${state.survey.nights} Nights` : null },
+    { label: 'Length of stay', value: nightsValue },
     { label: 'Focus', value: labelFor(surveyQuestions[1].options, state.survey.focus) },
     { label: 'Pace', value: labelFor(surveyQuestions[2].options, state.survey.pace) },
     { label: "Who's travelling", value: labelFor(surveyQuestions[3].options, state.survey.travellingAs) },

@@ -14,6 +14,7 @@ export const surveyQuestions = [
       { id: '3', label: '3 Nights' },
       { id: '4', label: '4 Nights' },
       { id: '5', label: '5 Nights' },
+      { id: 'other', label: 'Other', allowCustom: true },
     ],
   },
   {

@@ -11,7 +11,6 @@ import { Wellness } from './sections/02_Wellness';
 import { DesignYourStay } from './sections/03_DesignYourStay';
 import { Accommodation } from './sections/04_Accommodation';
 import { ChooseItinerary } from './sections/05_ChooseItinerary';
-import { SuggestedItineraries } from './sections/06_SuggestedItineraries';
 import { OurOfferings } from './sections/07_OurOfferings';
 import { StoryCards } from './sections/08_StoryCards';
 import { ReviewBooking } from './sections/09_ReviewBooking';
@@ -39,7 +38,6 @@ function AppShell() {
         <DesignYourStay />
         <Accommodation />
         <ChooseItinerary />
-        <SuggestedItineraries />
         <OurOfferings />
         <StoryCards />
         <ReviewBooking />

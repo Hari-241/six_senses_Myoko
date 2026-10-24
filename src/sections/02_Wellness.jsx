@@ -21,7 +21,7 @@ export function Wellness() {
         <ParallaxCollage
           className="wellness__collage"
           layers={[
-            { image: movement.image, aspect: '4 / 5', speed: 0.05 },
+            { image: movement.image, aspect: '16 / 10', speed: 0.05 },
             { image: rest.image, aspect: '1 / 1', speed: 0.08 },
             { image: foodTherapy.image, aspect: '4 / 3', speed: 0.07 },
           ]}

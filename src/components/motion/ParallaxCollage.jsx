@@ -13,15 +13,19 @@ import './ParallaxCollage.css';
  *
  * Structurally self-contained on purpose, after an early version let
  * layers visually drift into neighbouring sections' text:
- *  - The FIRST layer in `layers` is the "anchor" — it renders in normal
- *    document flow (via its own aspect-ratio), so it alone defines the
- *    container's real height. No magic-number height guessing.
- *  - Every other layer is an absolutely-positioned overlay on top of
- *    that anchor.
- *  - The container clips with `overflow: hidden`, so no amount of bleed
- *    offset or parallax drift can ever escape into the section above or
- *    below — worst case an overlay's edge gets cleanly clipped, it can
- *    never cover unrelated text.
+ *  - The FIRST layer in `layers` is the "anchor" — it spans the full
+ *    width and renders in normal document flow (via its own
+ *    aspect-ratio), so it alone defines the container's real height.
+ *    No magic-number height guessing, and because it covers every pixel
+ *    of the container, there's never a "dead zone" of bare background
+ *    beside a smaller overlay — wherever an overlay doesn't reach, the
+ *    anchor's own photo is still showing underneath.
+ *  - Every other layer is a smaller overlay, absolutely positioned on
+ *    top of one of the anchor's corners with a slight bleed past the
+ *    frame for a genuine layered-photos look.
+ *  - The container clips with `overflow: hidden`, so that bleed (and
+ *    any parallax drift) is cleanly cropped at the collage's own edge
+ *    and can never reach the section above or below.
  *
  * Pass 2–3 `layers`, each: { image, aspect, speed, layerClassName }.
  * `layerClassName` on an overlay layer picks its position/size from
@@ -33,6 +37,19 @@ import './ParallaxCollage.css';
  *
  * Photography-only, no text overlay — put accompanying copy in a
  * normal-flow block beside or below the collage instead (see Section 2).
+ *
+ * Entrance reveal: the outer collage element (untransformed, unclipped
+ * by anything above it) is the single `whileInView` trigger; every
+ * layer's RevealImage runs in `controlled` mode and inherits the
+ * "show" state via variant propagation. This is deliberate, not
+ * incidental — each layer's own wrapper receives a continuous scroll-
+ * driven `y` transform, and an image that self-observes for its entrance
+ * from inside that transformed (and, for overlays, `overflow:hidden`-
+ * clipped) hierarchy has been an actual, reproduced bug: the
+ * IntersectionObserver can report zero visible area at the moment it
+ * first checks, and since the trigger is once-only, it then never
+ * recovers — the image stays invisible forever. Triggering from the one
+ * stable, untransformed ancestor avoids that entirely.
  */
 export function ParallaxCollage({ layers, className }) {
   const containerRef = useRef(null);
@@ -45,8 +62,12 @@ export function ParallaxCollage({ layers, className }) {
 
   const [anchor, ...overlays] = layers;
 
+  const triggerProps = reduced
+    ? {}
+    : { initial: 'hidden', whileInView: 'show', viewport: { once: true, margin: '-10% 0px -10% 0px' }, variants: { hidden: {}, show: {} } };
+
   return (
-    <div ref={containerRef} className={`parallax-collage ${className ?? ''}`}>
+    <motion.div ref={containerRef} className={`parallax-collage ${className ?? ''}`} {...triggerProps}>
       <CollageLayer layer={anchor} index={0} isAnchor scrollYProgress={scrollYProgress} reduced={reduced} />
       {overlays.map((layer, i) => (
         <CollageLayer
@@ -57,7 +78,7 @@ export function ParallaxCollage({ layers, className }) {
           reduced={reduced}
         />
       ))}
-    </div>
+    </motion.div>
   );
 }
 
@@ -73,7 +94,7 @@ function CollageLayer({ layer, index, isAnchor, scrollYProgress, reduced }) {
 
   return (
     <motion.div className={`parallax-collage__layer ${slotClass}`} style={{ y }}>
-      <RevealImage image={layer.image} aspect={layer.aspect} delay={index * 0.12} />
+      <RevealImage image={layer.image} aspect={layer.aspect} delay={index * 0.12} controlled />
     </motion.div>
   );
 }

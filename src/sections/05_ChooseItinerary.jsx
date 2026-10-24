@@ -53,6 +53,17 @@ export function ChooseItinerary() {
       ? `${customStops.length} ${customStops.length === 1 ? 'Activity' : 'Activities'}`
       : null;
 
+  // A stable identity for whatever is currently being previewed. Passed as
+  // `key` below so switching between suggested itineraries (or changing
+  // which activities are checked) fully remounts the preview rather than
+  // patching the existing one in place — necessary because Motion's
+  // whileInView only fires once per mounted instance; without a fresh
+  // mount, content swapped into an already-settled instance stays stuck
+  // at its initial (invisible) state instead of animating in.
+  const previewKey = selectedItinerary
+    ? `suggested-${selectedItinerary.id}`
+    : `custom-${state.customActivities.join(',')}`;
+
   return (
     <section className="choose-itinerary section" id="choose-itinerary">
       <div className="container">
@@ -106,7 +117,7 @@ export function ChooseItinerary() {
         </PanelSwitch>
 
         {previewStops.length > 0 ? (
-          <Reveal as="div" className="itinerary-preview">
+          <Reveal as="div" className="itinerary-preview" key={previewKey}>
             <p className="itinerary-preview__eyebrow">Your Itinerary</p>
             <h3 className="itinerary-preview__name">{previewLabel}</h3>
             <div className="itinerary-preview__timeline">
