@@ -7,9 +7,10 @@
  * close to the original is fine. No code edit, no rebuild knowledge
  * required. See `public/images/README.md` for a shot list.
  *
- * Until you do that, every slot already renders a real, curated, licensed
- * stock photo (Unsplash — free to use) shipped in `public/images/`, so the
- * site is fully pitch-ready on first load.
+ * Most slots now render the team's own October field-trip photography.
+ * A few slots without a matching shot (hero/room/season generics, night
+ * sky, cycling, train, temple) still fall back to a curated, licensed
+ * stock photo (Unsplash — free to use), each marked with `credit` below.
  */
 
 function img(filename) {
@@ -30,8 +31,7 @@ export const images = {
   },
   heroForest: {
     src: img('hero-forest.jpg'),
-    alt: 'Mist drifting through a cedar forest at dawn',
-    credit: 'Unsplash',
+    alt: 'A cedar forest path near the resort',
   },
 
   // ---------- Why Myoko Beyond Winter — seasons ----------
@@ -64,8 +64,7 @@ export const images = {
   },
   pillarFoodTherapy: {
     src: img('pillar-food-therapy.jpg'),
-    alt: 'Rows of cedar fermentation barrels in soft natural light',
-    credit: 'Unsplash',
+    alt: 'A traditional fermentation hall lined with cedar-rimmed mash vats',
   },
 
   // ---------- Accommodation ----------
@@ -85,48 +84,48 @@ export const images = {
     credit: 'Unsplash',
   },
 
-  // ---------- Fermentation Valley producers (representative craft photography) ----------
-  producerCheese: {
-    src: img('producer-cheese.jpg'),
-    alt: 'A display of handcrafted natural cheese wheels',
-    credit: 'Unsplash',
+  // ---------- Fermentation Valley producers (own photography, Oct field trip) ----------
+  producerMiyasakaBrewery: {
+    src: img('producer-miyasaka-brewery.jpg'),
+    alt: 'Stacked Masumi sake barrels marked with traditional calligraphy',
   },
-  producerWine: {
-    src: img('producer-wine.jpg'),
-    alt: 'Mountain vineyard rows under a clear sky',
-    credit: 'Unsplash',
+  producerTakayashiroWinery: {
+    src: img('producer-takayashiro-winery.jpg'),
+    alt: "Takayashiro Farm & Winery's mountain property in Nakano",
   },
-  producerMiso: {
-    src: img('producer-miso.jpg'),
-    alt: 'Cedar barrels used for slow, traditional miso fermentation',
-    credit: 'Unsplash',
+  producerIshiiMiso: {
+    src: img('producer-ishii-miso.jpg'),
+    alt: "Ishii Miso's cedar fermentation barrels with ageing notes",
   },
-  producerSake: {
-    src: img('producer-sake.jpg'),
-    alt: 'Stacked sake barrels marked with traditional calligraphy',
-    credit: 'Unsplash',
+  producerMarukome: {
+    src: img('producer-marukome.jpg'),
+    alt: 'A wooden paddle lifting a scoop of miso paste',
   },
-  producerSoySauce: {
-    src: img('producer-soy-sauce.jpg'),
-    alt: 'Cedar brewing barrels decorated with traditional calligraphy',
-    credit: 'Unsplash',
+  producerAtelierDeFromage: {
+    src: img('producer-atelier-de-fromage.jpg'),
+    alt: 'A board of handcrafted Atelier de Fromage natural cheeses',
   },
-  producerNatto: {
-    src: img('producer-natto.jpg'),
-    alt: 'A close study of whole soybeans, the raw material of natto',
-    credit: 'Unsplash',
+  producerMurataShoten: {
+    src: img('producer-murata-shoten.jpg'),
+    alt: 'A representative of Murata Shoten with a box of their natto',
+  },
+  producerMaruiSoySauce: {
+    src: img('producer-marui-soy-sauce.jpg'),
+    alt: 'Marui Soy Sauce poured from the bottle for tasting',
   },
 
   // ---------- Activities ----------
   activityWaterfall: {
     src: img('activity-waterfall.jpg'),
-    alt: 'A waterfall falling through dense forest',
-    credit: 'Unsplash',
+    alt: 'A waterfall falling through misty forest, near Naena Falls',
+  },
+  activityNaenaFalls: {
+    src: img('activity-naena-falls.jpg'),
+    alt: 'Naena Falls dropping through a narrow volcanic-rock canyon',
   },
   activityYoga: {
     src: img('activity-yoga.jpg'),
-    alt: 'A figure in stillness on a mountain cliff at altitude',
-    credit: 'Unsplash',
+    alt: 'A figure in stillness in a seated yoga pose outdoors',
   },
   activityStars: {
     src: img('activity-stars.jpg'),
@@ -140,8 +139,7 @@ export const images = {
   },
   activityLake: {
     src: img('activity-lake.jpg'),
-    alt: 'A calm lake framed by misty mountains',
-    credit: 'Unsplash',
+    alt: 'A calm lake with a kayaker, framed by forested hills',
   },
   activityTrain: {
     src: img('activity-train.jpg'),
@@ -157,6 +155,38 @@ export const images = {
     src: img('temple-zen.jpg'),
     alt: 'An old Japanese temple veiled in haze among the trees',
     credit: 'Unsplash',
+  },
+  activitySasagamine: {
+    src: img('activity-sasagamine.jpg'),
+    alt: 'Open highland pasture at Sasagamine with cloud-wrapped peaks beyond',
+  },
+  activityAmazakeRitual: {
+    src: img('activity-amazake-ritual.jpg'),
+    alt: 'Two bowls of amazake-based dessert set with cherry blossoms',
+  },
+  activityKojiFacial: {
+    src: img('activity-koji-facial.jpg'),
+    alt: 'A guest receiving a koji-infused facial treatment',
+  },
+  activityRiversideSoundBath: {
+    src: img('activity-riverside-sound-bath.jpg'),
+    alt: 'A singing bowl and mallet set beside a mountain stream',
+  },
+  activitySleepRitual: {
+    src: img('activity-sleep-ritual.jpg'),
+    alt: 'A rock-framed mineral pool fed by a small cascade',
+  },
+  activitySpringWaterTasting: {
+    src: img('activity-spring-water-tasting.jpg'),
+    alt: "Myoko's volcanic spring water set for tasting",
+  },
+  activitySansaiForaging: {
+    src: img('activity-sansai-foraging.jpg'),
+    alt: 'A basket of freshly foraged wild mountain vegetables',
+  },
+  activityNattoMaking: {
+    src: img('activity-natto-making.jpg'),
+    alt: 'Soybeans moving through a natto production line',
   },
 };
 

@@ -11,7 +11,7 @@ export const itineraries = [
     id: 'restore-relax',
     name: 'Restore & Relax',
     subtitle: 'A gentle day built around stillness and the table',
-    image: images.pillarRest,
+    image: images.producerTakayashiroWinery,
     stops: [
       {
         time: 'Morning',
@@ -37,7 +37,7 @@ export const itineraries = [
     id: 'move-renew',
     name: 'Move & Renew',
     subtitle: 'An active day balanced by rest and regional flavour',
-    image: images.pillarMovement,
+    image: images.activityNaenaFalls,
     stops: [
       {
         time: 'Early Morning',
@@ -63,7 +63,7 @@ export const itineraries = [
     id: 'taste-of-nagano',
     name: 'Taste of Nagano',
     subtitle: "A full day's journey into the Suwa fermentation district",
-    image: images.activityLake,
+    image: images.producerMiyasakaBrewery,
     stops: [
       {
         time: 'Morning',

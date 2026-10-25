@@ -21,7 +21,7 @@ export const offeringsActivities = [
     name: 'Sake Tasting with Miyasaka',
     schedule: 'Wed & Sat, 4:00 PM',
     description: "A guided flight through Masumi's sake, brewed in Suwa since 1662, with the story of Yeast No. 7.",
-    image: images.producerSake,
+    image: images.producerMiyasakaBrewery,
     fv: true,
   },
   {
@@ -31,7 +31,7 @@ export const offeringsActivities = [
     name: 'Takayashiro Wine Tasting',
     schedule: 'Thursdays, 2:00 PM',
     description: 'Mountain-grown wines from a six-hectare Nakano vineyard, paired with seasonal fruit preserves.',
-    image: images.producerWine,
+    image: images.producerTakayashiroWinery,
     fv: true,
   },
   {
@@ -41,7 +41,7 @@ export const offeringsActivities = [
     name: 'Miso Flight: One, Two & Three Years',
     schedule: 'Daily, 11:00 AM',
     description: 'Taste miso at three stages of cedar-barrel ageing, side by side, and feel the difference the years make.',
-    image: images.producerMiso,
+    image: images.producerIshiiMiso,
     fv: true,
   },
   {
@@ -51,7 +51,7 @@ export const offeringsActivities = [
     name: 'Atelier de Fromage Cheese Board',
     schedule: 'Fridays, 5:00 PM',
     description: 'Award-winning natural cheeses from Tōmi, made without deference to European tradition — only to quality.',
-    image: images.producerCheese,
+    image: images.producerAtelierDeFromage,
     fv: true,
   },
 
@@ -63,7 +63,7 @@ export const offeringsActivities = [
     name: 'Miso Brewery Tour & Tenchi-Gaeshi',
     schedule: 'Tue & Fri, 9:00 AM',
     description: 'Walk the first-, second- and third-year storehouses, then help turn the mash by hand in the traditional method.',
-    image: images.producerMiso,
+    image: images.producerIshiiMiso,
     fv: true,
   },
   {
@@ -83,7 +83,7 @@ export const offeringsActivities = [
     name: 'Natto Making',
     schedule: 'Saturdays, 10:00 AM',
     description: 'Work with Nagano Nakasennari soybeans the traditional way — and learn the 400-stir trick that tames the aroma.',
-    image: images.producerNatto,
+    image: images.activityNattoMaking,
     fv: true,
   },
   {
@@ -93,7 +93,7 @@ export const offeringsActivities = [
     name: 'Cedar-Barrel Soy Sauce Visit',
     schedule: 'Wednesdays, 10:00 AM',
     description: 'See soy sauce aged in cedar barrels dating to 1869, carried today by the third generation of brewers.',
-    image: images.producerSoySauce,
+    image: images.pillarFoodTherapy,
     fv: true,
   },
 
@@ -125,7 +125,7 @@ export const offeringsActivities = [
     name: 'Sansai Mountain-Vegetable Lunch',
     schedule: 'Daily',
     description: 'Wild foraged greens, light and quick to prepare, in the Nagano tradition of eating with the season.',
-    image: images.activityCooking,
+    image: images.activitySansaiForaging,
     fv: false,
   },
   {
@@ -167,7 +167,7 @@ export const offeringsActivities = [
     name: 'Sasagamine Sunrise Silence Walk',
     schedule: 'Sundays, 5:30 AM',
     description: 'A silent walk across the Sasagamine highlands as the valley catches its first light.',
-    image: images.pillarMovement,
+    image: images.activitySasagamine,
     fv: false,
   },
   {
@@ -177,7 +177,7 @@ export const offeringsActivities = [
     name: 'Riverside Sound Bath',
     schedule: 'Tuesdays, 4:00 PM',
     description: 'Resonant bowls and running water, beside a stream fed directly by mountain snowmelt.',
-    image: images.seasonSpring,
+    image: images.activityRiversideSoundBath,
     fv: false,
   },
 
@@ -189,7 +189,7 @@ export const offeringsActivities = [
     name: 'Koji-Infused Facial',
     schedule: 'Daily',
     description: 'Fermentation-derived enzymes used in a restorative facial treatment, drawing on local brewing know-how.',
-    image: images.pillarRest,
+    image: images.activityKojiFacial,
     fv: true,
   },
   {
@@ -209,7 +209,7 @@ export const offeringsActivities = [
     name: 'Amazake Body Ritual',
     schedule: 'Daily',
     description: "A whole-body treatment built on amazake, Nagano's gently sweet fermented rice tonic.",
-    image: images.pillarRest,
+    image: images.activityAmazakeRitual,
     fv: true,
   },
   {
@@ -219,7 +219,7 @@ export const offeringsActivities = [
     name: 'Sleep Ritual with Fermented Herbal Elixir',
     schedule: 'Nightly, 9:00 PM',
     description: 'An evening wind-down pairing breathwork with a warm fermented elixir, closing the day gently.',
-    image: images.pillarRest,
+    image: images.activitySleepRitual,
     fv: true,
   },
 
@@ -241,7 +241,7 @@ export const offeringsActivities = [
     name: 'Sasagamine Highland Trail',
     schedule: 'Mon & Fri, 7:00 AM',
     description: 'Open highland walking with wide views back across the Myoko valley.',
-    image: images.pillarMovement,
+    image: images.activitySasagamine,
     fv: false,
   },
   {
@@ -388,7 +388,7 @@ export const activityStoryCards = [
   {
     id: 'naena-falls-story',
     name: 'Hikes to Naena Falls',
-    image: images.activityWaterfall,
+    image: images.activityNaenaFalls,
     story: "One of Myoko's most rewarding short hikes, ending at a waterfall fed by the mountain's own snowmelt.",
     insight: 'Suitable for most fitness levels, roughly two hours round trip.',
   },
@@ -430,7 +430,7 @@ export const activityStoryCards = [
   {
     id: 'sasagamine-walking-story',
     name: 'Sasagamine Highland Walking',
-    image: images.pillarMovement,
+    image: images.activitySasagamine,
     story: 'Open highland terrain above the valley floor, with views that stretch past Myoko itself.',
     insight: 'Best at sunrise, before the wind picks up.',
   },
@@ -451,21 +451,21 @@ export const activityStoryCards = [
   {
     id: 'sake-kasu-bathing-story',
     name: 'Sake-Kasu Bathing',
-    image: images.producerSake,
+    image: images.producerMiyasakaBrewery,
     story: 'A traditional bathing ritual using sake lees from the Suwa breweries, prized for softening skin.',
     insight: "Drawn from Miyasaka Brewery's own byproduct, rather than discarded.",
   },
   {
     id: 'sansai-foraging-story',
     name: 'Wild Sansai Foraging',
-    image: images.seasonSpring,
+    image: images.activitySansaiForaging,
     story: 'A guided foray for the wild mountain vegetables that define Nagano\'s spring table.',
     insight: 'Foraged greens appear on the table the same evening.',
   },
   {
     id: 'spring-water-tasting-story',
     name: 'Snowmelt Spring-Water Tasting',
-    image: images.seasonSpring,
+    image: images.activitySpringWaterTasting,
     story: "A tasting of Myoko's own volcanic spring water, the quiet foundation beneath every fermentation in the valley.",
     insight: "The same water feeds the region's miso, soy sauce and sake.",
   },

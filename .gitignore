@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Raw source photography / scratch work — not part of the built site
+/scratch
+/six senses myoko
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
