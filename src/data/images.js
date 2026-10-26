@@ -26,8 +26,7 @@ export const images = {
   },
   heroOnsen: {
     src: img('hero-onsen.jpg'),
-    alt: 'Steam rising from an outdoor hot spring in a traditional Japanese mountain setting',
-    credit: 'Unsplash',
+    alt: 'A waterfall dropping through a misty, forested gorge',
   },
   heroForest: {
     src: img('hero-forest.jpg'),
@@ -91,7 +90,7 @@ export const images = {
   },
   producerTakayashiroWinery: {
     src: img('producer-takayashiro-winery.jpg'),
-    alt: "Takayashiro Farm & Winery's mountain property in Nakano",
+    alt: 'Two Takayashiro Farm & Winery representatives behind a row of their wines',
   },
   producerIshiiMiso: {
     src: img('producer-ishii-miso.jpg'),
@@ -128,6 +127,10 @@ export const images = {
   producerAtelierDeFromageBoard: {
     src: img('producer-atelier-de-fromage-board.jpg'),
     alt: 'A board of handcrafted Atelier de Fromage natural cheeses',
+  },
+  producerTakayashiroVineyard: {
+    src: img('producer-takayashiro-vineyard.jpg'),
+    alt: "Takayashiro Farm & Winery's mountain property in Nakano",
   },
 
   // ---------- Activities ----------
@@ -211,6 +214,11 @@ export const images = {
   activityRiceTerraceEbike: {
     src: img('activity-rice-terrace-ebike.jpg'),
     alt: 'Cyclists riding an e-bike loop past golden rice terraces',
+  },
+  activityMineralOnsen: {
+    src: img('activity-mineral-onsen.jpg'),
+    alt: 'Steam rising from an outdoor hot spring in a traditional Japanese mountain setting',
+    credit: 'Unsplash',
   },
 };
 

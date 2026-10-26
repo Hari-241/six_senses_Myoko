@@ -31,7 +31,7 @@ export const offeringsActivities = [
     name: 'Takayashiro Wine Tasting',
     schedule: 'Thursdays, 2:00 PM',
     description: 'Mountain-grown wines from a six-hectare Nakano vineyard, paired with seasonal fruit preserves.',
-    image: images.producerTakayashiroWinery,
+    image: images.producerTakayashiroVineyard,
     fv: true,
   },
   {
@@ -199,7 +199,7 @@ export const offeringsActivities = [
     name: 'Mineral Onsen',
     schedule: 'Daily, 6:00 AM – 11:00 PM',
     description: 'Natural hot-spring waters, warm and mineral-rich, open from first light until late.',
-    image: images.heroOnsen,
+    image: images.activityMineralOnsen,
     fv: false,
   },
   {
@@ -367,7 +367,7 @@ export const activityStoryCards = [
   {
     id: 'mineral-onsen-story',
     name: 'Onsen',
-    image: images.heroOnsen,
+    image: images.activityMineralOnsen,
     story: "Myoko's volcanic ground feeds mineral-rich hot springs that have drawn visitors for centuries, long before the word wellness existed.",
     insight: 'Open from before dawn until late, indoors and out.',
   },

@@ -11,7 +11,7 @@ export const itineraries = [
     id: 'restore-relax',
     name: 'Restore & Relax',
     subtitle: 'A gentle day built around stillness and the table',
-    image: images.producerTakayashiroWinery,
+    image: images.producerTakayashiroVineyard,
     stops: [
       {
         time: 'Morning',
