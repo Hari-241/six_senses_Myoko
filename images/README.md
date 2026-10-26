@@ -55,9 +55,10 @@ file in `src/data/`.
 | `activity-spring-water-tasting.jpg` | Snowmelt Spring-Water Tasting story card | 4:3 | Own photography |
 | `activity-sansai-foraging.jpg` | Wild Sansai Foraging story card; sansai lunch | 4:3 | Own photography |
 | `activity-natto-making.jpg` | Natto Making workshop | 4:3 | Own photography |
+| `activity-sunrise-hatha-yoga.jpg` | Sunrise Hatha Yoga | 4:3 | Own photography |
+| `activity-rice-terrace-ebike.jpg` | Rice-Terrace E-Bike Loop | 4:3 | Own photography |
 
 A few of the own-photography files were saved from small source images
-(`producer-marukome.jpg`, `activity-spring-water-tasting.jpg`,
-`activity-riverside-sound-bath.jpg` among them) — they'll read a touch soft
-at large sizes. Replace with a higher-resolution shot of the same subject
-any time without touching code.
+(`activity-spring-water-tasting.jpg`, `activity-riverside-sound-bath.jpg`
+among them) — they'll read a touch soft at large sizes. Replace with a
+higher-resolution shot of the same subject any time without touching code.
