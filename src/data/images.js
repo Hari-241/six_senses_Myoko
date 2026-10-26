@@ -114,6 +114,22 @@ export const images = {
     alt: 'A Marui Soy Sauce brewer tending the cedar mash vats',
   },
 
+  // ---------- Same producers, product/location shots without a face —
+  // for schedule cards and activity cards outside the Section 8 producer
+  // story cards, where a repeated close-up portrait reads oddly ----------
+  producerMiyasakaSake: {
+    src: img('producer-miyasaka-sake.jpg'),
+    alt: 'Stacked Masumi sake barrels marked with traditional calligraphy',
+  },
+  producerIshiiMisoBarrels: {
+    src: img('producer-ishii-miso-barrels.jpg'),
+    alt: "Ishii Miso's cedar fermentation barrels with ageing notes",
+  },
+  producerAtelierDeFromageBoard: {
+    src: img('producer-atelier-de-fromage-board.jpg'),
+    alt: 'A board of handcrafted Atelier de Fromage natural cheeses',
+  },
+
   // ---------- Activities ----------
   activityWaterfall: {
     src: img('activity-waterfall.jpg'),

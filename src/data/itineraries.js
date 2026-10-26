@@ -63,7 +63,7 @@ export const itineraries = [
     id: 'taste-of-nagano',
     name: 'Taste of Nagano',
     subtitle: "A full day's journey into the Suwa fermentation district",
-    image: images.producerMiyasakaBrewery,
+    image: images.producerMiyasakaSake,
     stops: [
       {
         time: 'Morning',

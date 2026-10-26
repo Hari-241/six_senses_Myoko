@@ -21,7 +21,7 @@ export const offeringsActivities = [
     name: 'Sake Tasting with Miyasaka',
     schedule: 'Wed & Sat, 4:00 PM',
     description: "A guided flight through Masumi's sake, brewed in Suwa since 1662, with the story of Yeast No. 7.",
-    image: images.producerMiyasakaBrewery,
+    image: images.producerMiyasakaSake,
     fv: true,
   },
   {
@@ -41,7 +41,7 @@ export const offeringsActivities = [
     name: 'Miso Flight: One, Two & Three Years',
     schedule: 'Daily, 11:00 AM',
     description: 'Taste miso at three stages of cedar-barrel ageing, side by side, and feel the difference the years make.',
-    image: images.producerIshiiMiso,
+    image: images.producerIshiiMisoBarrels,
     fv: true,
   },
   {
@@ -51,7 +51,7 @@ export const offeringsActivities = [
     name: 'Atelier de Fromage Cheese Board',
     schedule: 'Fridays, 5:00 PM',
     description: 'Award-winning natural cheeses from Tōmi, made without deference to European tradition — only to quality.',
-    image: images.producerAtelierDeFromage,
+    image: images.producerAtelierDeFromageBoard,
     fv: true,
   },
 
@@ -63,7 +63,7 @@ export const offeringsActivities = [
     name: 'Miso Brewery Tour & Tenchi-Gaeshi',
     schedule: 'Tue & Fri, 9:00 AM',
     description: 'Walk the first-, second- and third-year storehouses, then help turn the mash by hand in the traditional method.',
-    image: images.producerIshiiMiso,
+    image: images.producerIshiiMisoBarrels,
     fv: true,
   },
   {
@@ -451,7 +451,7 @@ export const activityStoryCards = [
   {
     id: 'sake-kasu-bathing-story',
     name: 'Sake-Kasu Bathing',
-    image: images.producerMiyasakaBrewery,
+    image: images.producerMiyasakaSake,
     story: 'A traditional bathing ritual using sake lees from the Suwa breweries, prized for softening skin.',
     insight: "Drawn from Miyasaka Brewery's own byproduct, rather than discarded.",
   },

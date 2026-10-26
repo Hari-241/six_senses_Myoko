@@ -17,6 +17,12 @@ keys, same order as this list. To add a brand-new slot rather than replace
 an existing one, add a new key there and reference it from the relevant
 file in `src/data/`.
 
+Some producers have two photos: a portrait with a person's face, used only
+on their Section 8 story card, and a plain product/location shot reused on
+the smaller schedule cards in Section 7 and elsewhere — a repeated close-up
+face reads oddly at thumbnail size across many cards. Keep that split when
+replacing either one.
+
 | Filename | Used for | Recommended ratio | Source |
 |---|---|---|---|
 | `hero-alpine-valley.jpg` | Hero carousel, slide 1 | 16:9, wide | Stock |
@@ -31,11 +37,14 @@ file in `src/data/`.
 | `room-suite.jpg` | Accommodation — Alpine Onsen Suite | 3:2 | Stock |
 | `room-villa.jpg` | Accommodation — Cedar Forest Pool Villa | 3:2 | Stock |
 | `room-family.jpg` | Accommodation — family/group rooms | 3:2 | Stock |
-| `producer-miyasaka-brewery.jpg` | Miyasaka Brewery story card; sake tasting; sake-kasu bathing | 4:5 portrait | Own photography |
+| `producer-miyasaka-brewery.jpg` | Miyasaka Brewery story card (Section 8 **only** — portrait with a face) | 4:5 portrait | Own photography |
+| `producer-miyasaka-sake.jpg` | Sake tasting card; sake-kasu bathing story (no-face product shot) | 4:5 portrait | Own photography |
 | `producer-takayashiro-winery.jpg` | Takayashiro Farm & Winery story card; wine tasting | 4:5 portrait | Own photography |
-| `producer-ishii-miso.jpg` | Ishii Miso story card; miso flight; miso brewery tour | 4:5 portrait | Own photography |
+| `producer-ishii-miso.jpg` | Ishii Miso story card (Section 8 **only** — portrait with a face) | 4:5 portrait | Own photography |
+| `producer-ishii-miso-barrels.jpg` | Miso flight; miso brewery tour (no-face barrels shot) | 4:5 portrait | Own photography |
 | `producer-marukome.jpg` | Marukome story card | 4:5 portrait | Own photography |
-| `producer-atelier-de-fromage.jpg` | Atelier de Fromage story card; cheese board tasting | 4:5 portrait | Own photography |
+| `producer-atelier-de-fromage.jpg` | Atelier de Fromage story card (Section 8 **only** — portrait with a face) | 4:5 portrait | Own photography |
+| `producer-atelier-de-fromage-board.jpg` | Cheese board tasting card (no-face product shot) | 4:5 portrait | Own photography |
 | `producer-murata-shoten.jpg` | Murata Shoten story card | 4:5 portrait | Own photography |
 | `producer-marui-soy-sauce.jpg` | Marui Soy Sauce story card | 4:5 portrait | Own photography |
 | `activity-waterfall.jpg` | Naena Falls hike (Offerings schedule card) | 4:3 | Own photography |
