@@ -26,7 +26,7 @@ replacing either one.
 | Filename | Used for | Recommended ratio | Source |
 |---|---|---|---|
 | `hero-alpine-valley.jpg` | Hero carousel, slide 1 | 16:9, wide | Stock |
-| `hero-onsen.jpg` | Hero carousel, slide 2 | 16:9, wide | Stock |
+| `hero-onsen.jpg` | Hero carousel, slide 2 (a waterfall shot despite the filename — kept for the hero slide only, not reused as an onsen photo) | 16:9, wide | Own photography |
 | `hero-forest.jpg` | Hero carousel, slide 3 | 16:9, wide | Own photography |
 | `season-summer.jpg` | "Why Myoko Beyond Winter" — Summer column | 4:5 or 1:1 | Stock |
 | `season-autumn.jpg` | "Why Myoko Beyond Winter" — Autumn column | 4:5 or 1:1 | Stock |
@@ -39,7 +39,8 @@ replacing either one.
 | `room-family.jpg` | Accommodation — family/group rooms | 3:2 | Stock |
 | `producer-miyasaka-brewery.jpg` | Miyasaka Brewery story card (Section 8 **only** — portrait with a face) | 4:5 portrait | Own photography |
 | `producer-miyasaka-sake.jpg` | Sake tasting card; sake-kasu bathing story (no-face product shot) | 4:5 portrait | Own photography |
-| `producer-takayashiro-winery.jpg` | Takayashiro Farm & Winery story card; wine tasting | 4:5 portrait | Own photography |
+| `producer-takayashiro-winery.jpg` | Takayashiro Farm & Winery story card (Section 8 **only** — portrait with faces) | 4:5 portrait | Own photography |
+| `producer-takayashiro-vineyard.jpg` | Wine tasting card; Restore & Relax itinerary (no-face location shot) | 4:5 portrait | Own photography |
 | `producer-ishii-miso.jpg` | Ishii Miso story card (Section 8 **only** — portrait with a face) | 4:5 portrait | Own photography |
 | `producer-ishii-miso-barrels.jpg` | Miso flight; miso brewery tour (no-face barrels shot) | 4:5 portrait | Own photography |
 | `producer-marukome.jpg` | Marukome story card | 4:5 portrait | Own photography |
@@ -66,6 +67,7 @@ replacing either one.
 | `activity-natto-making.jpg` | Natto Making workshop | 4:3 | Own photography |
 | `activity-sunrise-hatha-yoga.jpg` | Sunrise Hatha Yoga | 4:3 | Own photography |
 | `activity-rice-terrace-ebike.jpg` | Rice-Terrace E-Bike Loop | 4:3 | Own photography |
+| `activity-mineral-onsen.jpg` | Mineral Onsen offering card; Onsen story card | 4:3 | Stock |
 
 A few of the own-photography files were saved from small source images
 (`activity-spring-water-tasting.jpg`, `activity-riverside-sound-bath.jpg`
