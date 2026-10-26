@@ -87,7 +87,7 @@ export const images = {
   // ---------- Fermentation Valley producers (own photography, Oct field trip) ----------
   producerMiyasakaBrewery: {
     src: img('producer-miyasaka-brewery.jpg'),
-    alt: 'Stacked Masumi sake barrels marked with traditional calligraphy',
+    alt: 'A Miyasaka Brewery representative in the doorway of the brewery',
   },
   producerTakayashiroWinery: {
     src: img('producer-takayashiro-winery.jpg'),
@@ -95,15 +95,15 @@ export const images = {
   },
   producerIshiiMiso: {
     src: img('producer-ishii-miso.jpg'),
-    alt: "Ishii Miso's cedar fermentation barrels with ageing notes",
+    alt: "An Ishii Miso brewer beside the cedar barrels and ageing notes",
   },
   producerMarukome: {
     src: img('producer-marukome.jpg'),
-    alt: 'A wooden paddle lifting a scoop of miso paste',
+    alt: 'A Marukome representative in branded workwear',
   },
   producerAtelierDeFromage: {
     src: img('producer-atelier-de-fromage.jpg'),
-    alt: 'A board of handcrafted Atelier de Fromage natural cheeses',
+    alt: "An Atelier de Fromage cheesemaker outside the workshop, holding a wheel of cheese",
   },
   producerMurataShoten: {
     src: img('producer-murata-shoten.jpg'),
@@ -111,7 +111,7 @@ export const images = {
   },
   producerMaruiSoySauce: {
     src: img('producer-marui-soy-sauce.jpg'),
-    alt: 'Marui Soy Sauce poured from the bottle for tasting',
+    alt: 'A Marui Soy Sauce brewer tending the cedar mash vats',
   },
 
   // ---------- Activities ----------
@@ -170,7 +170,7 @@ export const images = {
   },
   activityRiversideSoundBath: {
     src: img('activity-riverside-sound-bath.jpg'),
-    alt: 'A singing bowl and mallet set beside a mountain stream',
+    alt: 'A singing bowl and mallet set beside a still pool',
   },
   activitySleepRitual: {
     src: img('activity-sleep-ritual.jpg'),
@@ -187,6 +187,14 @@ export const images = {
   activityNattoMaking: {
     src: img('activity-natto-making.jpg'),
     alt: 'Soybeans moving through a natto production line',
+  },
+  activitySunriseHathaYoga: {
+    src: img('activity-sunrise-hatha-yoga.jpg'),
+    alt: 'A guest in seated hatha yoga pose overlooking hills at sunrise',
+  },
+  activityRiceTerraceEbike: {
+    src: img('activity-rice-terrace-ebike.jpg'),
+    alt: 'Cyclists riding an e-bike loop past golden rice terraces',
   },
 };
 

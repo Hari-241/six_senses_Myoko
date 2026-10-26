@@ -283,7 +283,7 @@ export const offeringsActivities = [
     name: 'Rice-Terrace E-Bike Loop',
     schedule: 'Daily, 10:00 AM',
     description: 'An easy e-assisted loop through terraced rice fields, suited to any fitness level.',
-    image: images.activityCycling,
+    image: images.activityRiceTerraceEbike,
     fv: false,
   },
   {
@@ -305,7 +305,7 @@ export const offeringsActivities = [
     name: 'Sunrise Hatha Yoga',
     schedule: 'Tue & Thu, 6:30 AM',
     description: "Find your inner calm against the backdrop of Myoko's breathtaking alpine horizons.",
-    image: images.activityYoga,
+    image: images.activitySunriseHathaYoga,
     fv: false,
   },
   {
