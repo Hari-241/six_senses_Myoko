@@ -33,6 +33,7 @@ export function Wellness() {
           {wellnessPillars.pillars.map((pillar) => (
             <RevealItem as="div" className="wellness__pillar" key={pillar.id}>
               <p className="wellness__pillar-label">{pillar.label}</p>
+              <p className="wellness__pillar-tag">{pillar.tag}</p>
               <p className="wellness__pillar-body">{pillar.body}</p>
             </RevealItem>
           ))}

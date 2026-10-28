@@ -41,25 +41,28 @@ export const whyMyoko = {
 };
 
 export const wellnessPillars = {
-  eyebrow: 'Three Pillars',
+  eyebrow: 'Six Pillars, Shaped Into Three',
   heading: 'Wellness in Six Senses Myoko',
   body: 'Every stay at Six Senses Myoko moves between three pillars — a rhythm of exertion, stillness and nourishment shaped by the valley itself.',
   pillars: [
     {
       id: 'movement',
       label: 'Movement',
+      tag: 'Move · Mindfulness',
       image: images.pillarMovement,
       body: 'Reconnect with nature along Myoko\'s pristine mountain trails, suitable for all levels.',
     },
     {
       id: 'rest',
       label: 'Rest',
+      tag: 'Sleep · Spa',
       image: images.pillarRest,
       body: 'Immerse yourself in mineral-rich thermal waters paired with warm, fermented herbal compresses.',
     },
     {
       id: 'foodTherapy',
       label: 'Food Therapy',
+      tag: 'Eat · Grow',
       image: images.pillarFoodTherapy,
       body: "Discover Nagano's fermentation heritage through tastings, workshops and meals built around regional producers.",
     },

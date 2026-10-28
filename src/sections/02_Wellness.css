@@ -20,7 +20,18 @@
   font-size: var(--fs-h3);
   font-weight: 400;
   color: var(--heading);
-  margin-bottom: 10px;
+  margin-bottom: 6px;
+}
+
+.wellness__pillar-tag {
+  font-family: var(--font-ui);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: var(--track-wide);
+  text-transform: uppercase;
+  color: var(--body);
+  opacity: 0.65;
+  margin-bottom: 14px;
 }
 
 .wellness__pillar-body {
