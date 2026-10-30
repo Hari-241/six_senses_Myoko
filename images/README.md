@@ -23,51 +23,58 @@ the smaller schedule cards in Section 7 and elsewhere — a repeated close-up
 face reads oddly at thumbnail size across many cards. Keep that split when
 replacing either one.
 
+Section 7's "Our Offerings" grid draws on the master activity list in
+`src/data/activities.js`, which also feeds the itinerary builder — every
+one of its 36 activities is given a different image, several of them
+hero/room/season photos doing double duty as activity placeholders since
+the team doesn't yet have a dedicated photo for every one. Replace any of
+them with a closer-fitting shot at any time, same filename, no code change.
+
 | Filename | Used for | Recommended ratio | Source |
 |---|---|---|---|
-| `hero-alpine-valley.jpg` | Hero carousel, slide 1 | 16:9, wide | Stock |
-| `hero-onsen.jpg` | Hero carousel, slide 2 (a waterfall shot despite the filename — kept for the hero slide only, not reused as an onsen photo) | 16:9, wide | Own photography |
-| `hero-forest.jpg` | Hero carousel, slide 3 | 16:9, wide | Own photography |
-| `season-summer.jpg` | "Why Myoko Beyond Winter" — Summer column | 4:5 or 1:1 | Stock |
-| `season-autumn.jpg` | "Why Myoko Beyond Winter" — Autumn column | 4:5 or 1:1 | Stock |
-| `season-spring.jpg` | "Why Myoko Beyond Winter" — Spring column | 4:5 or 1:1 | Stock |
-| `pillar-movement.jpg` | Wellness pillar — Movement | 4:5 | Stock |
-| `pillar-rest.jpg` | Wellness pillar — Rest | 4:5 | Stock |
-| `pillar-food-therapy.jpg` | Wellness pillar — Food Therapy; cedar-barrel soy sauce visit | 4:5 | Own photography |
-| `room-suite.jpg` | Accommodation — Alpine Onsen Suite | 3:2 | Stock |
-| `room-villa.jpg` | Accommodation — Cedar Forest Pool Villa | 3:2 | Stock |
-| `room-family.jpg` | Accommodation — family/group rooms | 3:2 | Stock |
+| `hero-alpine-valley.jpg` | Hero carousel, slide 1; Lake Suwa Day Trip & Five-Brewery Circuit offering | 16:9, wide | Stock |
+| `hero-onsen.jpg` | Hero carousel, slide 2 (a waterfall shot despite the filename); Fermentation Valley Tasting Menu offering | 16:9, wide | Own photography |
+| `hero-forest.jpg` | Hero carousel, slide 3; Sasagamine Sunrise Silence Walk offering | 16:9, wide | Own photography |
+| `season-summer.jpg` | "Why Myoko Beyond Winter" — Summer column; Myoko Summit Ascent offering | 4:5 or 1:1 | Stock |
+| `season-autumn.jpg` | "Why Myoko Beyond Winter" — Autumn column; Evening Village Walk offering | 4:5 or 1:1 | Stock |
+| `season-spring.jpg` | "Why Myoko Beyond Winter" — Spring column; Farm-to-Table Breakfast offering | 4:5 or 1:1 | Stock |
+| `pillar-movement.jpg` | Wellness pillar — Movement; Mat Pilates offering | 4:5 | Stock |
+| `pillar-rest.jpg` | Wellness pillar — Rest; Spa Massage offering | 4:5 | Stock |
+| `pillar-food-therapy.jpg` | Wellness pillar — Food Therapy; Miso Brewery Tour & Tenchi-Gaeshi offering | 4:5 | Own photography |
+| `room-suite.jpg` | Accommodation — Alpine Onsen Suite; Chef's Table at the Koji Counter offering | 3:2 | Stock |
+| `room-villa.jpg` | Accommodation — Cedar Forest Pool Villa; Cedar-Barrel Soy Sauce Visit offering | 3:2 | Stock |
+| `room-family.jpg` | Accommodation — family/group rooms; Lunch Featuring Ishii Miso's Three-Year-Aged Miso offering | 3:2 | Stock |
 | `producer-miyasaka-brewery.jpg` | Miyasaka Brewery story card (Section 8 **only** — portrait with a face) | 4:5 portrait | Own photography |
-| `producer-miyasaka-sake.jpg` | Sake tasting card; sake-kasu bathing story (no-face product shot) | 4:5 portrait | Own photography |
+| `producer-miyasaka-sake.jpg` | Sake Tasting with Miyasaka offering (no-face product shot) | 4:5 portrait | Own photography |
 | `producer-takayashiro-winery.jpg` | Takayashiro Farm & Winery story card (Section 8 **only** — portrait with faces) | 4:5 portrait | Own photography |
-| `producer-takayashiro-vineyard.jpg` | Wine tasting card; Restore & Relax itinerary (no-face location shot) | 4:5 portrait | Own photography |
+| `producer-takayashiro-vineyard.jpg` | Takayashiro Wine Tasting offering; Restore & Relax itinerary (no-face location shot) | 4:5 portrait | Own photography |
 | `producer-ishii-miso.jpg` | Ishii Miso story card (Section 8 **only** — portrait with a face) | 4:5 portrait | Own photography |
-| `producer-ishii-miso-barrels.jpg` | Miso flight; miso brewery tour (no-face barrels shot) | 4:5 portrait | Own photography |
+| `producer-ishii-miso-barrels.jpg` | Miso Flight offering (no-face barrels shot) | 4:5 portrait | Own photography |
 | `producer-marukome.jpg` | Marukome story card | 4:5 portrait | Own photography |
 | `producer-atelier-de-fromage.jpg` | Atelier de Fromage story card (Section 8 **only** — portrait with a face) | 4:5 portrait | Own photography |
-| `producer-atelier-de-fromage-board.jpg` | Cheese board tasting card (no-face product shot) | 4:5 portrait | Own photography |
+| `producer-atelier-de-fromage-board.jpg` | Atelier de Fromage Cheese Board offering (no-face product shot) | 4:5 portrait | Own photography |
 | `producer-murata-shoten.jpg` | Murata Shoten story card | 4:5 portrait | Own photography |
 | `producer-marui-soy-sauce.jpg` | Marui Soy Sauce story card | 4:5 portrait | Own photography |
-| `activity-waterfall.jpg` | Naena Falls hike (Offerings schedule card) | 4:3 | Own photography |
-| `activity-naena-falls.jpg` | Hikes to Naena Falls (Section 8 story card); Move & Renew itinerary | 4:3 | Own photography |
-| `activity-yoga.jpg` | Yoga activity cards | 4:3 | Own photography |
-| `activity-stars.jpg` | Meditation under the stars | 4:3 | Stock |
-| `activity-cycling.jpg` | Guided cycling activity card | 4:3 | Stock |
-| `activity-lake.jpg` | Lake Nojiri kayaking activity card | 4:3 | Own photography |
-| `activity-train.jpg` | Rokumon scenic rail journey | 4:3 | Stock |
-| `activity-cooking.jpg` | Cooking class / meal activity cards | 4:3 | Stock |
-| `temple-zen.jpg` | Temple zazen / forest therapy activity card | 4:3 | Stock |
-| `activity-sasagamine.jpg` | Sasagamine sunrise walk, highland trail & story card | 4:3 | Own photography |
-| `activity-amazake-ritual.jpg` | Amazake Body Ritual | 4:3 | Own photography |
-| `activity-koji-facial.jpg` | Koji-Infused Facial | 4:3 | Own photography |
-| `activity-riverside-sound-bath.jpg` | Riverside Sound Bath | 4:3 | Own photography |
-| `activity-sleep-ritual.jpg` | Sleep Ritual with Fermented Herbal Elixir | 4:3 | Own photography |
-| `activity-spring-water-tasting.jpg` | Snowmelt Spring-Water Tasting story card | 4:3 | Own photography |
-| `activity-sansai-foraging.jpg` | Wild Sansai Foraging story card; sansai lunch | 4:3 | Own photography |
-| `activity-natto-making.jpg` | Natto Making workshop | 4:3 | Own photography |
-| `activity-sunrise-hatha-yoga.jpg` | Sunrise Hatha Yoga | 4:3 | Own photography |
-| `activity-rice-terrace-ebike.jpg` | Rice-Terrace E-Bike Loop | 4:3 | Own photography |
-| `activity-mineral-onsen.jpg` | Mineral Onsen offering card; Onsen story card | 4:3 | Stock |
+| `activity-waterfall.jpg` | Naena Falls Guided Hike offering | 4:3 | Own photography |
+| `activity-naena-falls.jpg` | Breathwork at Altitude offering | 4:3 | Own photography |
+| `activity-yoga.jpg` | Sunset Yin Yoga offering | 4:3 | Own photography |
+| `activity-stars.jpg` | Meditation Under the Stars offering | 4:3 | Stock |
+| `activity-cycling.jpg` | Alpine Valley Cycling with Tasting Stops offering | 4:3 | Stock |
+| `activity-lake.jpg` | Obuse Day Trip offering | 4:3 | Own photography |
+| `activity-train.jpg` | Rokumon Rail & Ride offering | 4:3 | Stock |
+| `activity-cooking.jpg` | Cooking Classes offering | 4:3 | Stock |
+| `temple-zen.jpg` | Forest Therapy offering | 4:3 | Stock |
+| `activity-sasagamine.jpg` | Sasagamine Highland Trail offering | 4:3 | Own photography |
+| `activity-amazake-ritual.jpg` | Amazake Body Ritual offering | 4:3 | Own photography |
+| `activity-koji-facial.jpg` | Koji-Infused Facial offering | 4:3 | Own photography |
+| `activity-riverside-sound-bath.jpg` | Riverside Sound Bath offering | 4:3 | Own photography |
+| `activity-sleep-ritual.jpg` | Sleep Ritual with Fermented Herbal Elixir offering | 4:3 | Own photography |
+| `activity-spring-water-tasting.jpg` | Koji Workshop offering | 4:3 | Own photography |
+| `activity-sansai-foraging.jpg` | Sansai Mountain-Vegetable Lunch offering | 4:3 | Own photography |
+| `activity-natto-making.jpg` | Natto Making offering | 4:3 | Own photography |
+| `activity-sunrise-hatha-yoga.jpg` | Sunrise Hatha Yoga offering | 4:3 | Own photography |
+| `activity-rice-terrace-ebike.jpg` | Rice-Terrace E-Bike Loop offering | 4:3 | Own photography |
+| `activity-mineral-onsen.jpg` | Mineral Onsen offering | 4:3 | Stock |
 
 A few of the own-photography files were saved from small source images
 (`activity-spring-water-tasting.jpg`, `activity-riverside-sound-bath.jpg`
