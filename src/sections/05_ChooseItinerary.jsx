@@ -6,7 +6,7 @@ import { FermentationTag } from '../components/ui/FermentationTag';
 import { ItineraryTimeline } from '../components/ItineraryTimeline';
 import { usePlanner } from '../context/PlannerContext';
 import { itineraries } from '../data/itineraries';
-import { offeringsActivities, offeringsTabGroups } from '../data/activities';
+import { offeringsActivities, offeringsTabGroups, activitySlots } from '../data/activities';
 import { offeringsTabs } from '../data/content';
 import { useReducedMotion } from '../hooks/useReducedMotion';
 import './05_ChooseItinerary.css';
@@ -46,50 +46,115 @@ function findActivity(id) {
   return offeringsActivities.find((a) => a.id === id) ?? null;
 }
 
-// One Rest, one Movement and one Food Therapy pick, shaped lightly by the
-// survey answers — Food Therapy always lands on the latest day.
-const MOVEMENT_BY_PACE = {
-  slow: { id: 'evening-village-walk', slot: 'evening' },
-  balanced: { id: 'naena-falls-hike', slot: 'morning' },
-  active: { id: 'myoko-summit-ascent', slot: 'morning' },
-};
-const REST_BY_FOCUS = {
-  rest: { id: 'sleep-ritual', slot: 'evening' },
-  gutHealth: { id: 'koji-facial', slot: 'afternoon' },
-  nature: { id: 'forest-therapy', slot: 'afternoon' },
-  culinary: { id: 'mineral-onsen', slot: 'evening' },
-};
-
-function pickFoodTherapy(survey) {
-  const deepInterest = survey.diningStyle === 'fermentationMenu' || survey.foodInterest === 'interested';
-  return deepInterest ? { id: 'fv-tasting-menu', slot: 'evening' } : { id: 'sansai-lunch', slot: 'afternoon' };
+function fitsSlot(activity, slot) {
+  return activitySlots(activity).includes(slot);
 }
 
-function place(items, day, preferredSlot, activityId) {
-  const taken = new Set(items.filter((it) => it.day === day).map((it) => it.slot));
-  const slot = taken.has(preferredSlot) ? SLOT_ORDER.find((s) => !taken.has(s)) ?? preferredSlot : preferredSlot;
-  return [...items, { day, slot, activityId }];
+const PILLAR_PRIORITY_BY_FOCUS = {
+  culinary: ['foodTherapy', 'rest', 'movement'],
+  gutHealth: ['foodTherapy', 'rest', 'movement'],
+  rest: ['rest', 'foodTherapy', 'movement'],
+  nature: ['movement', 'rest', 'foodTherapy'],
+};
+const DEFAULT_PILLAR_PRIORITY = ['rest', 'movement', 'foodTherapy'];
+
+const MOVEMENT_FIRST_BY_PACE = {
+  slow: ['sunset-yin-yoga', 'evening-village-walk', 'rice-terrace-ebike'],
+  balanced: ['naena-falls-hike', 'sunrise-hatha-yoga', 'rice-terrace-ebike'],
+  active: ['myoko-summit-ascent', 'sasagamine-highland-trail', 'alpine-valley-cycling'],
+};
+
+// Which slots get pre-filled each day: two per day (rotating) unless the
+// guest chose an active pace, which fills all three.
+const TWO_SLOT_PATTERNS = [
+  ['morning', 'evening'],
+  ['morning', 'afternoon'],
+  ['afternoon', 'evening'],
+];
+
+function rankedCandidates(pillar, survey) {
+  const pool = offeringsActivities.filter((a) => a.pillar === pillar && a.tab !== 'fullDayTrips');
+  if (pillar === 'movement') {
+    const first = MOVEMENT_FIRST_BY_PACE[survey.pace] ?? MOVEMENT_FIRST_BY_PACE.balanced;
+    const rank = (a) => (first.includes(a.id) ? first.indexOf(a.id) : first.length);
+    return [...pool].sort((a, b) => rank(a) - rank(b));
+  }
+  if (pillar === 'foodTherapy') {
+    const deepInterest = survey.diningStyle === 'fermentationMenu' || survey.foodInterest === 'interested';
+    return [...pool].sort((a, b) => (deepInterest ? Number(b.fv) - Number(a.fv) : Number(a.fv) - Number(b.fv)));
+  }
+  return pool;
+}
+
+const ITINERARY_STOP_NAMES = itineraries.map((it) => new Set(it.stops.map((s) => s.title)));
+
+function copiesSuggestedItinerary(names) {
+  return names.length >= 2 && ITINERARY_STOP_NAMES.some((set) => names.every((n) => set.has(n)));
 }
 
 function generateMixMatchItems(survey) {
   const dayCount = getDayCount(survey);
-  const restDay = 0;
-  const movementDay = dayCount >= 2 ? 1 : 0;
-  const foodDay = dayCount - 1;
+  const priority = PILLAR_PRIORITY_BY_FOCUS[survey.focus] ?? DEFAULT_PILLAR_PRIORITY;
+  const foodCap = survey.foodInterest === 'none' ? 1 : Infinity;
 
-  const movement = MOVEMENT_BY_PACE[survey.pace] ?? MOVEMENT_BY_PACE.balanced;
-  const rest = REST_BY_FOCUS[survey.focus] ?? REST_BY_FOCUS.culinary;
-  const food = pickFoodTherapy(survey);
+  const positions = [];
+  for (let day = 0; day < dayCount; day += 1) {
+    const slots = survey.pace === 'active' ? SLOT_ORDER : TWO_SLOT_PATTERNS[day % TWO_SLOT_PATTERNS.length];
+    slots.forEach((slot) => positions.push({ day, slot }));
+  }
 
-  let items = [];
-  items = place(items, restDay, rest.slot, rest.id);
-  items = place(items, movementDay, movement.slot, movement.id);
-  items = place(items, foodDay, food.slot, food.id);
+  const items = [];
+  const used = new Set();
+  const counts = { rest: 0, movement: 0, foodTherapy: 0 };
+
+  positions.forEach(({ day, slot }, i) => {
+    const missing = priority.filter((p) => counts[p] === 0);
+    const rotated = priority.map((_, k) => priority[(i + k) % priority.length]);
+    const order = [...new Set([...missing, ...rotated])];
+    const dayNames = items.filter((it) => it.day === day).map((it) => findActivity(it.activityId).name);
+
+    for (const pillar of order) {
+      if (pillar === 'foodTherapy' && counts.foodTherapy >= foodCap) continue;
+      const pick = rankedCandidates(pillar, survey).find(
+        (a) => !used.has(a.id) && fitsSlot(a, slot) && !copiesSuggestedItinerary([...dayNames, a.name]),
+      );
+      if (pick) {
+        items.push({ day, slot, activityId: pick.id });
+        used.add(pick.id);
+        counts[pillar] += 1;
+        break;
+      }
+    }
+  });
+
   return items;
 }
 
-function swapAlternatives(pillar, excludeId) {
-  return offeringsActivities.filter((a) => a.pillar === pillar && a.id !== excludeId).slice(0, 3);
+// 2–3 activities that fit the slot's time and aren't already planned,
+// leading with pillars the plan is shortest on.
+function openSlotOptions(slot, items) {
+  const used = new Set(items.map((it) => it.activityId));
+  const counts = { rest: 0, movement: 0, foodTherapy: 0 };
+  items.forEach((it) => {
+    const a = findActivity(it.activityId);
+    if (a) counts[a.pillar] += 1;
+  });
+  const fitting = offeringsActivities.filter((a) => !used.has(a.id) && fitsSlot(a, slot));
+  const picks = [];
+  const pillars = Object.keys(counts).sort((a, b) => counts[a] - counts[b]);
+  for (const pillar of pillars) {
+    const next = fitting.find((a) => a.pillar === pillar);
+    if (next) picks.push(next);
+  }
+  return picks.slice(0, 3);
+}
+
+function swapAlternatives(activity, slot, items) {
+  const used = new Set(items.map((it) => it.activityId));
+  const fitting = offeringsActivities.filter((a) => !used.has(a.id) && fitsSlot(a, slot));
+  const samePillar = fitting.filter((a) => a.pillar === activity.pillar);
+  const others = fitting.filter((a) => a.pillar !== activity.pillar);
+  return [...samePillar, ...others].slice(0, 3);
 }
 
 export function ChooseItinerary() {
@@ -208,6 +273,10 @@ function MixMatchPanel() {
     setOpenSwap(null);
   }
 
+  function handleFill(day, slot, id) {
+    setMixMatchItems([...items, { day, slot, activityId: id }]);
+  }
+
   return (
     <div className="plan-builder">
       <p className="plan-builder__intro">Start from a plan shaped for you. Swap what you like.</p>
@@ -228,7 +297,7 @@ function MixMatchPanel() {
               const entry = items.find((it) => it.day === dayIndex && it.slot === slot);
               const activity = entry ? findActivity(entry.activityId) : null;
               const swapKey = `${dayIndex}-${slot}`;
-              const alternatives = activity ? swapAlternatives(activity.pillar, activity.id) : [];
+              const alternatives = activity ? swapAlternatives(activity, slot, items) : [];
 
               return (
                 <div className="plan-slot" key={slot}>
@@ -256,14 +325,28 @@ function MixMatchPanel() {
                               className="plan-slot__swap-option"
                               onClick={() => handleSwap(dayIndex, slot, alt.id)}
                             >
-                              {alt.name}
+                              <SlotOptionLabel activity={alt} />
                             </button>
                           ))}
                         </div>
                       ) : null}
                     </div>
                   ) : (
-                    <p className="plan-slot__empty">Open</p>
+                    <div className="plan-slot__open">
+                      <p className="plan-slot__suggest-label">Open — suggested for this slot</p>
+                      <div className="plan-slot__swap-list">
+                        {openSlotOptions(slot, items).map((option) => (
+                          <button
+                            type="button"
+                            key={option.id}
+                            className="plan-slot__swap-option"
+                            onClick={() => handleFill(dayIndex, slot, option.id)}
+                          >
+                            <SlotOptionLabel activity={option} />
+                          </button>
+                        ))}
+                      </div>
+                    </div>
                   )}
                 </div>
               );
@@ -272,6 +355,18 @@ function MixMatchPanel() {
         ))}
       </div>
     </div>
+  );
+}
+
+function SlotOptionLabel({ activity }) {
+  return (
+    <>
+      <span className="plan-slot__option-name">{activity.name}</span>
+      <span className="plan-slot__option-meta">
+        {PILLAR_LABELS[activity.pillar]}
+        {activity.scheduleHint ? ` · ${activity.scheduleHint}` : ''}
+      </span>
+    </>
   );
 }
 

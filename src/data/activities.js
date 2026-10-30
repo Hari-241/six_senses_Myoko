@@ -433,6 +433,32 @@ export const offeringsActivities = [
   },
 ];
 
+const SLOT_OVERRIDES = {
+  'farm-to-table-breakfast': ['morning'],
+  'sansai-lunch': ['afternoon'],
+};
+
+function toHours(h, m, meridiem) {
+  const base = Number(h) % 12;
+  return (meridiem === 'PM' ? base + 12 : base) + Number(m) / 60;
+}
+
+// Which itinerary-builder slots ('morning' | 'afternoon' | 'evening') an
+// activity's schedule fits; a time range covers every slot it spans.
+export function activitySlots(activity) {
+  if (SLOT_OVERRIDES[activity.id]) return SLOT_OVERRIDES[activity.id];
+  if (activity.tab === 'fullDayTrips') return ['morning'];
+  const times = [...activity.schedule.matchAll(/(\d{1,2}):(\d{2})\s*(AM|PM)/g)].map((m) => toHours(m[1], m[2], m[3]));
+  if (times.length === 0) return ['morning', 'afternoon', 'evening'];
+  const start = times[0];
+  const end = times[times.length - 1];
+  const slots = [];
+  if (start < 12) slots.push('morning');
+  if (start < 17 && end >= 12) slots.push('afternoon');
+  if (end >= 17) slots.push('evening');
+  return slots;
+}
+
 export const offeringsTabGroups = {
   foodTherapy: [
     { id: 'tastings', label: 'Tastings' },

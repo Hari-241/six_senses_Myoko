@@ -182,10 +182,28 @@
   margin-bottom: 8px;
 }
 
-.plan-slot__empty {
+.plan-slot__suggest-label {
   font-size: 0.8125rem;
   color: var(--body-soft);
   font-style: italic;
+}
+
+.plan-slot__open .plan-slot__swap-list {
+  margin-top: 8px;
+}
+
+.plan-slot__option-name {
+  display: block;
+}
+
+.plan-slot__option-meta {
+  display: block;
+  margin-top: 2px;
+  font-family: var(--font-ui);
+  font-size: 0.625rem;
+  letter-spacing: var(--track-mid);
+  text-transform: uppercase;
+  color: var(--body-soft);
 }
 
 .plan-slot__activity-top {
