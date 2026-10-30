@@ -21,13 +21,13 @@ export const itineraries = [
       },
       {
         time: 'Midday',
-        title: 'Signature Spa Massage',
+        title: 'Spa Massage',
         description: 'A therapeutic massage drawing on regional botanicals and fermentation-derived treatments unique to the valley.',
         fv: false,
       },
       {
         time: 'Afternoon',
-        title: 'Takayashiro Winery Tasting',
+        title: 'Takayashiro Wine Tasting',
         description: "Visit Takayashiro Farm & Winery for wine and grape tasting among mountain vineyard rows, paired with the farm's own seasonal preserves.",
         fv: true,
       },
@@ -41,19 +41,19 @@ export const itineraries = [
     stops: [
       {
         time: 'Early Morning',
-        title: 'Guided Hike to Naena Falls',
+        title: 'Naena Falls Guided Hike',
         description: "A guided trail to one of Myoko's most rewarding waterfalls, suitable for most fitness levels and roughly two hours round trip.",
         fv: false,
       },
       {
         time: 'Midday',
-        title: "Lunch Featuring Ishii Miso's 3-Year Miso",
+        title: "Lunch Featuring Ishii Miso's Three-Year-Aged Miso",
         description: 'A resort lunch built around three-year cedar-barrel miso from Ishii Miso, aged by a method less than one percent of Japan still follows.',
         fv: true,
       },
       {
         time: 'Evening',
-        title: 'Resort Onsen',
+        title: 'Mineral Onsen',
         description: 'Close the day in the mineral-rich waters of the resort onsen, open from early morning until late.',
         fv: false,
       },
@@ -73,7 +73,7 @@ export const itineraries = [
       },
       {
         time: 'Midday',
-        title: 'Miyasaka Brewery & the Suwa 5 Kura Circuit',
+        title: 'Lake Suwa Day Trip & Five-Brewery Circuit',
         description: 'Sake tasting at Miyasaka Brewery, home of the historic No. 7 yeast, followed by the five-brewery circuit that has turned the district into a destination in its own right.',
         fv: true,
       },
@@ -85,7 +85,7 @@ export const itineraries = [
       },
       {
         time: 'Evening',
-        title: 'Farm-to-Table Tasting Menu with Marui Soy Sauce',
+        title: 'Fermentation Valley Tasting Menu',
         description: 'Dinner at the Farm-to-Table restaurant, a tasting menu featuring Marui Soy Sauce and other Fermentation Valley producers from across the day.',
         fv: true,
       },

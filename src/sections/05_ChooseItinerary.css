@@ -106,70 +106,346 @@
   color: var(--body);
 }
 
-.activity-picker__count {
+/* ---------- Mix & Match / Build Your Own shared shell ---------- */
+
+.plan-builder__intro {
+  font-size: 0.9375rem;
+  color: var(--body);
+  margin-bottom: 20px;
+}
+
+.plan-builder__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.plan-builder__balance {
+  font-family: var(--font-ui);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: var(--track-mid);
+  text-transform: uppercase;
+  color: var(--moss);
+}
+
+.plan-builder__counter {
   font-family: var(--font-ui);
   font-size: var(--fs-label);
   letter-spacing: var(--track-mid);
   text-transform: uppercase;
-  color: var(--moss);
-  margin-bottom: 20px;
+  color: var(--body-soft);
 }
 
-.activity-picker__group {
-  margin-bottom: 28px;
+.plan-builder__days {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
 }
 
-.activity-picker__group-label {
+.plan-day {
+  background: var(--white);
+  border: 1px solid var(--hairline);
+  padding: 22px 20px;
+}
+
+.plan-day__label {
   font-family: var(--font-display);
   font-size: 1.1rem;
   color: var(--heading);
+  margin-bottom: 16px;
+}
+
+/* ---------- Mix & Match day slots ---------- */
+
+.plan-slot {
+  padding-top: 14px;
+  margin-top: 14px;
+  border-top: 1px solid var(--hairline);
+}
+
+.plan-slot:first-of-type {
+  padding-top: 0;
+  margin-top: 0;
+  border-top: none;
+}
+
+.plan-slot__label {
+  font-family: var(--font-ui);
+  font-size: var(--fs-label);
+  letter-spacing: var(--track-mid);
+  text-transform: uppercase;
+  color: var(--body-soft);
+  margin-bottom: 8px;
+}
+
+.plan-slot__empty {
+  font-size: 0.8125rem;
+  color: var(--body-soft);
+  font-style: italic;
+}
+
+.plan-slot__activity-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.plan-slot__name {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--heading);
+}
+
+.plan-slot__time {
+  font-family: var(--font-ui);
+  font-size: 0.6875rem;
+  letter-spacing: var(--track-mid);
+  text-transform: uppercase;
+  color: var(--body-soft);
+  margin-bottom: 10px;
+}
+
+.plan-slot__swap-btn {
+  font-family: var(--font-ui);
+  font-size: var(--fs-label);
+  letter-spacing: var(--track-mid);
+  text-transform: uppercase;
+  color: var(--plum);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.plan-slot__swap-btn:hover {
+  color: var(--plum-soft);
+}
+
+.plan-slot__swap-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.plan-slot__swap-option {
+  text-align: left;
+  padding: 8px 12px;
+  background: var(--greige);
+  border: 1px solid transparent;
+  font-size: 0.8125rem;
+  color: var(--heading);
+  cursor: pointer;
+  transition: border-color var(--dur-fast) var(--ease-out);
+}
+
+.plan-slot__swap-option:hover {
+  border-color: var(--plum);
+}
+
+/* ---------- Build Your Own day cards ---------- */
+
+.plan-day--scratch {
+  min-height: 140px;
+}
+
+.plan-day__empty {
+  font-size: 0.8125rem;
+  color: var(--body-soft);
+  font-style: italic;
+}
+
+.plan-day__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.plan-day__item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.plan-day__item:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.plan-day__item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.plan-day__item-name {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  color: var(--heading);
+}
+
+.plan-day__item-time {
+  font-family: var(--font-ui);
+  font-size: 0.6875rem;
+  letter-spacing: var(--track-mid);
+  text-transform: uppercase;
+  color: var(--body-soft);
+}
+
+.plan-day__remove {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius-pill);
+  color: var(--body);
+  cursor: pointer;
+  line-height: 1;
+}
+
+.plan-day__remove:hover {
+  border-color: var(--plum);
+  color: var(--plum);
+}
+
+/* ---------- Build Your Own activity library ---------- */
+
+.activity-library {
+  margin-top: clamp(32px, 5vw, 48px);
+  padding-top: clamp(28px, 4vw, 40px);
+  border-top: 1px solid var(--hairline);
+}
+
+.activity-library__group {
+  margin-bottom: 28px;
+}
+
+.activity-library__group-label {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--heading);
+  margin-bottom: 12px;
+}
+
+.activity-library__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
   margin-bottom: 14px;
 }
 
-.activity-picker__list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.activity-picker__item {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 16px;
+.activity-library__filter {
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
   background: var(--white);
   border: 1px solid var(--hairline-strong);
-  border-radius: var(--radius-pill);
+  font-family: var(--font-ui);
+  font-size: var(--fs-label);
+  letter-spacing: var(--track-mid);
+  text-transform: uppercase;
+  color: var(--body);
+  cursor: pointer;
+  transition: border-color var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out);
+}
+
+.activity-library__filter:hover {
+  border-color: var(--plum);
+}
+
+.activity-library__filter--active {
+  background: var(--tan);
+  border-color: var(--plum);
+  color: var(--heading);
+}
+
+.activity-library__list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.activity-library__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 12px 16px;
+  background: var(--white);
+  border: 1px solid var(--hairline);
+}
+
+.activity-library__item-info {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
   font-size: 0.8125rem;
+  color: var(--heading);
+}
+
+.activity-library__item-name {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--heading);
+}
+
+.activity-library__hint {
+  font-family: var(--font-ui);
+  font-size: 0.625rem;
+  letter-spacing: var(--track-mid);
+  text-transform: uppercase;
+  color: var(--body-soft);
+}
+
+.activity-library__add-days {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.activity-library__add-label {
+  font-family: var(--font-ui);
+  font-size: 0.625rem;
+  letter-spacing: var(--track-mid);
+  text-transform: uppercase;
+  color: var(--body-soft);
+  margin-right: 2px;
+}
+
+.activity-library__add-btn {
+  width: 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-pill);
+  background: var(--white);
+  border: 1px solid var(--hairline-strong);
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
   color: var(--heading);
   cursor: pointer;
   transition: border-color var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out);
 }
 
-.activity-picker__item:hover {
+.activity-library__add-btn:hover {
+  background: var(--plum);
   border-color: var(--plum);
-}
-
-.activity-picker__item--checked {
-  background: var(--tan-soft);
-  border-color: var(--plum);
-}
-
-.activity-picker__checkbox {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 16px;
-  height: 16px;
-  border-radius: 4px;
-  border: 1px solid var(--hairline-strong);
-  font-size: 0.65rem;
-  color: var(--plum);
-}
-
-.activity-picker__item--checked .activity-picker__checkbox {
-  border-color: var(--plum);
-  background: var(--white);
+  color: var(--white);
 }
 
 @media (max-width: 860px) {

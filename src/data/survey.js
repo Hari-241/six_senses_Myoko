@@ -87,6 +87,7 @@ export const diningStyleQuestion = {
       label: 'Fermentation Valley Wellness Menu',
       description:
         "A full week of dishes built around Nagano's regional fermentation producers — miso, soy sauce, sake, cheese and wine, woven through breakfast, lunch and dinner.",
+      suggested: true,
     },
     {
       id: 'alaCarte',

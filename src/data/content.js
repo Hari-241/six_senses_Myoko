@@ -71,6 +71,6 @@ export const wellnessPillars = {
 
 export const offeringsTabs = [
   { id: 'foodTherapy', label: 'Food Therapy' },
-  { id: 'rest', label: 'Rest & Mindfulness' },
+  { id: 'rest', label: 'Rest' },
   { id: 'movement', label: 'Movement' },
 ];

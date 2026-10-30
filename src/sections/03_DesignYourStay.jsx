@@ -14,7 +14,7 @@ export function DesignYourStay() {
       <div className="container">
         <SectionHeading
           eyebrow="Build Your Plan"
-          heading="Or design your stay"
+          heading="Design your stay"
           body="Answer a few quick questions and we'll shape a daily plan you can still edit by hand."
           measure={false}
         />
@@ -85,7 +85,10 @@ export function DesignYourStay() {
                 >
                   <div className="dining-style__card-top">
                     <h4>{option.label}</h4>
-                    {option.id === 'fermentationMenu' ? <FermentationTag /> : null}
+                    <div className="dining-style__card-tags">
+                      {option.suggested ? <span className="suggested-tag">Suggested</span> : null}
+                      {option.id === 'fermentationMenu' ? <FermentationTag /> : null}
+                    </div>
                   </div>
                   <p>{option.description}</p>
                 </button>

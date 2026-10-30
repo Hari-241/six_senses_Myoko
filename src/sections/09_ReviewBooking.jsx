@@ -20,8 +20,14 @@ export function ReviewBooking() {
 
   const room = rooms.find((r) => r.id === state.roomId);
   const suggestedItinerary = itineraries.find((it) => it.id === state.itineraryId);
-  const customActivityNames = state.customActivities
-    .map((id) => offeringsActivities.find((a) => a.id === id)?.name)
+  const customPlanItems =
+    state.itineraryMode === 'mixMatch'
+      ? state.mixMatchItems
+      : state.itineraryMode === 'buildOwn'
+        ? state.buildOwnItems
+        : [];
+  const customActivityNames = customPlanItems
+    .map((it) => offeringsActivities.find((a) => a.id === it.activityId)?.name)
     .filter(Boolean);
 
   const nightsValue =

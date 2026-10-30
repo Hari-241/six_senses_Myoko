@@ -37,8 +37,8 @@ function AppShell() {
         <Wellness />
         <DesignYourStay />
         <Accommodation />
-        <ChooseItinerary />
         <OurOfferings />
+        <ChooseItinerary />
         <StoryCards />
         <ReviewBooking />
       </main>
