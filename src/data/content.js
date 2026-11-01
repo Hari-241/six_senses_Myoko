@@ -4,7 +4,7 @@ export const introBlock = {
   eyebrow: 'Myoko, Nagano',
   heading: 'A wellness escape, written in Green Season',
   body:
-    "Six Senses Myoko sits where Nagano's alpine valleys meet its deepest tradition of fermentation. This companion site lets you shape a Green Season stay around three pillars of wellness — Movement, Rest, and Food Therapy — and the craftspeople of Fermentation Valley NAGANO who give the region its quiet, remarkable depth.",
+    'At Six Senses Myoko, experience Japan through nature and wellness. Six Senses Myoko invites you to slow down and enjoy the serenity, silence and taste of the region, all year-round.',
   contact: {
     heading: 'Contact',
     lines: ['Six Senses Myoko', 'Sekikawa, Myoko Kogen', 'Niigata–Nagano border', 'Japan', 'reservations-myoko@sixsenses.com', '+81 25 555 0199'],
